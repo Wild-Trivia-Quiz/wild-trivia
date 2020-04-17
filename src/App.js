@@ -7,7 +7,7 @@ function App() {
   return (
     <div className='App'>
       <div className='spinner-border' role='status'>
-        <span className='sr-only'>Loading App...</span>
+        <span className='sr-only'>Loading...</span>
       </div>
       <header className='App-header'>
         <img src={logo} className='App-logo' alt='logo' />
