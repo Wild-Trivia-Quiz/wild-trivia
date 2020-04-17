@@ -7,7 +7,7 @@ class MainPage extends React.Component {
   }
 
   render() {
-    return <div>...</div>;
+    return <div>Selected Main Page</div>;
   }
 }
 
