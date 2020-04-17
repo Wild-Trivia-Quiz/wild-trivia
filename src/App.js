@@ -2,6 +2,9 @@ import React from 'react';
 import './App.scss';
 import 'bootstrap/dist/css/bootstrap.min.css';
 import { BrowserRouter as Router, Switch, Route, Link } from 'react-router-dom';
+import Homepage from './components/Homepage';
+import About from './components/About';
+import Game from './components/Game';
 
 function App() {
   return (
@@ -16,7 +19,7 @@ function App() {
               <Link to='/about'>About</Link>
             </li>
             <li>
-              <Link to='/detailpage'>Detail Page</Link>
+              <Link to='/game'>Game</Link>
             </li>
           </ul>
         </nav>
@@ -27,8 +30,8 @@ function App() {
           <Route exact path='/'>
             <Homepage />
           </Route>
-          <Route path='/detailpage'>
-            <DetailPage />
+          <Route path='/game'>
+            <Game />
           </Route>
           <Route path='/about'>
             <About />
@@ -39,16 +42,5 @@ function App() {
   );
 }
 
-function Homepage() {
-  return <h2>Homepage</h2>;
-}
-
-function About() {
-  return <h2>About</h2>;
-}
-
-function DetailPage() {
-  return <h2>Detail Page</h2>;
-}
 
 export default App;

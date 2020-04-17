@@ -1,14 +1,15 @@
 import React from 'react';
 
-class DetailPage extends React.Component {
+class MainPage extends React.Component {
   constructor(props) {
     super(props);
     this.state = {};
   }
 
   render() {
-    return <div>...</div>;
+    return <div>Selected Main Page</div>;
   }
 }
 
-export default DetailPage;
+
+export default MainPage;
