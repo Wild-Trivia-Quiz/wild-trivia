@@ -6,8 +6,8 @@ import 'bootstrap/dist/css/bootstrap.min.css';
 function App() {
   return (
     <div className='App'>
-      <div class='spinner-border' role='status'>
-        <span class='sr-only'>Loading...</span>
+      <div className='spinner-border' role='status'>
+        <span className='sr-only'>Loading...</span>
       </div>
       <header className='App-header'>
         <img src={logo} className='App-logo' alt='logo' />
