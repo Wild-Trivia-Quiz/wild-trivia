@@ -1,4 +1,5 @@
 import React from 'react';
+import BackBtn from './BackBtn'
 
 class About extends React.Component {
   constructor(props) {
@@ -7,7 +8,11 @@ class About extends React.Component {
   }
 
   render() {
-    return <div>...</div>;
+    return (
+      <div>
+        <BackBtn url="/" />
+      </div>
+    );
   }
 }
 
