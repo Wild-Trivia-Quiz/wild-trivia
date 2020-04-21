@@ -8,7 +8,6 @@ import Game from './components/Game';
 
 function App() {
   return (
-
     <Router>
       <div>
         <nav>
@@ -42,6 +41,5 @@ function App() {
     </Router>
   );
 }
-
 
 export default App;

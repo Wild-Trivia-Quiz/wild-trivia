@@ -6,27 +6,25 @@ class Homepage extends React.Component {
   constructor(props) {
     super(props);
     this.state = {
-      isMainPageLoaded: false 
+      isMainPageLoaded: false,
     };
   }
 
   handleClick = () => {
     console.log('clicked');
     this.setState({
-      isMainPageLoaded : true
-    }) 
-  } 
+      isMainPageLoaded: true,
+    });
+  };
 
   render() {
-    const {isMainPageLoaded} = this.state;
+    const { isMainPageLoaded } = this.state;
     return (
       <div>
-        <button type="button" onClick={this.handleClick}>Click</button>
-        {
-        isMainPageLoaded ? 
-        <MainPage /> : 
-        <LandingPage />
-        }
+        <button type='button' onClick={this.handleClick}>
+          Click
+        </button>
+        {isMainPageLoaded ? <MainPage /> : <LandingPage />}
       </div>
     );
   }
