@@ -1,22 +1,51 @@
 import React from "react";
+import axios from "axios";
 import "./MainPage.scss";
 import { Container, Row, Col } from "react-bootstrap";
 import CardGame from "./CardGame";
 import logo from "../img/logo-white.png";
+import gamesnames from "../gamesnames.json";
 
 class MainPage extends React.Component {
   constructor(props) {
     super(props);
     this.state = {
       active: false,
+      quizData: []
     };
   }
+
+  triviaApiCall = (event) => {
+    let searchParams = "";
+    
+    if (event.target.value !== "random") {
+      searchParams = `&difficulty=${event.target.value}`;
+      console.log(`game difficulty ${event.target.value}`);
+    }
+    
+    axios
+      .get(
+        `https://opentdb.com/api.php?amount=10&category=23${searchParams}&type=multiple&encode=url3986`
+      )
+      .then((response) => {
+        console.log(response.data.results);
+        const quizData = response.data.results;
+        this.setState({
+          quizData,
+        });
+      });
+  };
 
   handleClick = () => {
     const { active } = this.state;
     this.setState({
       active: !active,
     });
+  };
+
+  handleSubmit = (e) => {
+    e.preventDefault();
+    console.log("submit game!")
   }
 
   render() {
@@ -59,15 +88,17 @@ class MainPage extends React.Component {
             </Col>
           </Row>
           <Row className="content-block">
-            <Col xs={12} sm={6} md={6} lg={4}>
-              <CardGame active={active} handleClick={this.handleClick} />
-            </Col>
-            <Col xs={12} sm={6} md={6} lg={4}>
-              <CardGame active={active} handleClick={this.handleClick} />
-            </Col>
-            <Col xs={12} sm={6} md={6} lg={4}>
-              <CardGame active={active} handleClick={this.handleClick} />
-            </Col>
+            {gamesnames.map((game) => (
+              <CardGame
+                key={game.id}
+                id={game.id}
+                name={game.name}
+                active={active}
+                handleClick={this.handleClick}
+                handleSubmit={this.handleSubmit}
+                triviaApiCall={this.triviaApiCall}
+              />
+            ))}
           </Row>
         </Container>
       </div>
