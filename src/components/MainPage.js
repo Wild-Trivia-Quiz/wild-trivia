@@ -10,7 +10,6 @@ class MainPage extends React.Component {
   constructor(props) {
     super(props);
     this.state = {
-      gameSelectionValue: 'easy',
       quizData: []
     };
   }
@@ -37,22 +36,15 @@ class MainPage extends React.Component {
       });
   };
 
-  handleChange = (e) => {
-    console.log("changed", e.target.value);
-    this.setState({
-      gameSelectionValue: e.target.value
-    })
-  }
 
-  handleSubmit = (e) => {
-    const { gameSelectionValue } = this.state;
-    console.log("submit game!", e);
-    this.triviaApiCall(gameSelectionValue);
-    e.preventDefault();
+  handleSubmit = (event, gameDifficulty) => {
+    event.preventDefault();
+    console.log(`gameDifficulty ${gameDifficulty}`);
+    this.triviaApiCall(gameDifficulty);
+    
   }
 
   render() {
-    const { gameSelectionValue } = this.state;
     return (
       <div className="mainpage">
         <Container fluid>
@@ -97,8 +89,6 @@ class MainPage extends React.Component {
                 id={game.id}
                 name={game.name}
                 handleSubmit={this.handleSubmit}
-                handleChange={this.handleChange}
-                value={gameSelectionValue}
               />
             ))}
           </Row>
