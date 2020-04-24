@@ -4,7 +4,13 @@ import { Card, Form, Col } from "react-bootstrap";
 import PropTypes from "prop-types";
 import cardGameImage from "../img/cardgame.jpg";
 
-function CardGame({ active, handleClick, handleSubmit, triviaApiCall, name, id }) {
+function CardGame({
+  handleSubmit,
+  handleChange,
+  name,
+  id,
+  value
+}) {
   return (
     <Col xs={12} sm={6} md={6} lg={4}>
       <Card id={`game-${id}`} className="card-game text-white">
@@ -13,13 +19,13 @@ function CardGame({ active, handleClick, handleSubmit, triviaApiCall, name, id }
         </div>
         <Card.ImgOverlay>
           <h2>{name}</h2>
-          <Form>
-            <Form.Group controlId="form.SelectGame" onSubmit={handleSubmit}>
+          <Form onSubmit={handleSubmit}>
+            <Form.Group controlId="form.SelectGame">
               <Form.Label>What&apos;s your difficulty level?</Form.Label>
               <Form.Control
                 as="select"
-                name="difficulty"
-                onBlur={triviaApiCall}
+                value={value}
+                onChange={handleChange}
               >
                 <option value="easy">Easy</option>
                 <option value="medium">Medium</option>
@@ -28,11 +34,8 @@ function CardGame({ active, handleClick, handleSubmit, triviaApiCall, name, id }
               </Form.Control>
             </Form.Group>
             <button
-              type="button"
-              className={
-                active ? "button-on arcade-btn" : "button-off arcade-btn"
-              }
-              onClick={handleClick}
+              type="submit"
+              className="arcade-btn"
             >
               Let&apos;s play!
             </button>
@@ -44,21 +47,19 @@ function CardGame({ active, handleClick, handleSubmit, triviaApiCall, name, id }
 }
 
 CardGame.propTypes = {
-  active: PropTypes.bool,
-  handleClick: PropTypes.func,
   handleSubmit: PropTypes.func,
-  triviaApiCall: PropTypes.func,
+  handleChange: PropTypes.func,
   name: PropTypes.string,
-  id: PropTypes.number
+  id: PropTypes.number,
+  value: PropTypes.string
 };
 
 CardGame.defaultProps = {
-  handleClick: () => {},
   handleSubmit: () => {},
-  triviaApiCall: () => {},
-  active: false,
+  handleChange: () => {},
+  value: 'easy',
   name: "",
-  id: ""
+  id: "",
 };
 
 export default CardGame;

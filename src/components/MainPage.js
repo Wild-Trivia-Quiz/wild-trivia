@@ -10,17 +10,18 @@ class MainPage extends React.Component {
   constructor(props) {
     super(props);
     this.state = {
-      active: false,
+      gameSelectionValue: 'easy',
       quizData: []
     };
   }
 
-  triviaApiCall = (event) => {
+  triviaApiCall = (gameSelection) => {
+    console.log(`gameSelection ${gameSelection}`);
+
     let searchParams = "";
     
-    if (event.target.value !== "random") {
-      searchParams = `&difficulty=${event.target.value}`;
-      console.log(`game difficulty ${event.target.value}`);
+    if (gameSelection !== "random") {
+      searchParams = `&difficulty=${gameSelection}`;
     }
     
     axios
@@ -36,20 +37,22 @@ class MainPage extends React.Component {
       });
   };
 
-  handleClick = () => {
-    const { active } = this.state;
+  handleChange = (e) => {
+    console.log("changed", e.target.value);
     this.setState({
-      active: !active,
-    });
-  };
+      gameSelectionValue: e.target.value
+    })
+  }
 
   handleSubmit = (e) => {
+    const { gameSelectionValue } = this.state;
+    console.log("submit game!", e);
+    this.triviaApiCall(gameSelectionValue);
     e.preventDefault();
-    console.log("submit game!")
   }
 
   render() {
-    const { active } = this.state;
+    const { gameSelectionValue } = this.state;
     return (
       <div className="mainpage">
         <Container fluid>
@@ -93,10 +96,9 @@ class MainPage extends React.Component {
                 key={game.id}
                 id={game.id}
                 name={game.name}
-                active={active}
-                handleClick={this.handleClick}
                 handleSubmit={this.handleSubmit}
-                triviaApiCall={this.triviaApiCall}
+                handleChange={this.handleChange}
+                value={gameSelectionValue}
               />
             ))}
           </Row>
