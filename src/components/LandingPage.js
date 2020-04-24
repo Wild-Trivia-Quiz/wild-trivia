@@ -1,5 +1,4 @@
 import React from 'react';
-import APIFetchingDummy from './APIFetchingDummy';
 
 class LandingPage extends React.Component {
   constructor(props) {
@@ -11,9 +10,6 @@ class LandingPage extends React.Component {
     return (
       <div>
         <div>Selected Landing Page</div>
-        <div>
-          <APIFetchingDummy />
-        </div>
       </div>
     );
   }

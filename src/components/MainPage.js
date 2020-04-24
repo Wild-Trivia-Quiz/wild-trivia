@@ -1,26 +1,58 @@
 import React from "react";
+import axios from "axios";
 import "./MainPage.scss";
 import { Container, Row, Col } from "react-bootstrap";
 import CardGame from "./CardGame";
 import logo from "../img/logo-white.png";
+import gamesnames from "../gamesnames.json";
 
 class MainPage extends React.Component {
   constructor(props) {
     super(props);
     this.state = {
-      active: false,
+      gameSelectionValue: 'easy',
+      quizData: []
     };
   }
 
-  handleClick = () => {
-    const { active } = this.state;
+  triviaApiCall = (gameSelection) => {
+    console.log(`gameSelection ${gameSelection}`);
+
+    let searchParams = "";
+    
+    if (gameSelection !== "random") {
+      searchParams = `&difficulty=${gameSelection}`;
+    }
+    
+    axios
+      .get(
+        `https://opentdb.com/api.php?amount=10&category=23${searchParams}&type=multiple&encode=url3986`
+      )
+      .then((response) => {
+        console.log(response.data.results);
+        const quizData = response.data.results;
+        this.setState({
+          quizData,
+        });
+      });
+  };
+
+  handleChange = (e) => {
+    console.log("changed", e.target.value);
     this.setState({
-      active: !active,
-    });
+      gameSelectionValue: e.target.value
+    })
+  }
+
+  handleSubmit = (e) => {
+    const { gameSelectionValue } = this.state;
+    console.log("submit game!", e);
+    this.triviaApiCall(gameSelectionValue);
+    e.preventDefault();
   }
 
   render() {
-    const { active } = this.state;
+    const { gameSelectionValue } = this.state;
     return (
       <div className="mainpage">
         <Container fluid>
@@ -59,15 +91,16 @@ class MainPage extends React.Component {
             </Col>
           </Row>
           <Row className="content-block">
-            <Col xs={12} sm={6} md={6} lg={4}>
-              <CardGame active={active} handleClick={this.handleClick} />
-            </Col>
-            <Col xs={12} sm={6} md={6} lg={4}>
-              <CardGame active={active} handleClick={this.handleClick} />
-            </Col>
-            <Col xs={12} sm={6} md={6} lg={4}>
-              <CardGame active={active} handleClick={this.handleClick} />
-            </Col>
+            {gamesnames.map((game) => (
+              <CardGame
+                key={game.id}
+                id={game.id}
+                name={game.name}
+                handleSubmit={this.handleSubmit}
+                handleChange={this.handleChange}
+                value={gameSelectionValue}
+              />
+            ))}
           </Row>
         </Container>
       </div>
