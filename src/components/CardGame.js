@@ -7,9 +7,11 @@ import cardGameImage from "../img/cardgame.jpg";
 function CardGame({
   handleSubmit,
   handleChange,
+  handleClick,
+  isButtonClicked,
   name,
   id,
-  value
+  value,
 }) {
   return (
     <Col xs={12} sm={6} md={6} lg={4}>
@@ -20,13 +22,9 @@ function CardGame({
         <Card.ImgOverlay>
           <h2>{name}</h2>
           <Form onSubmit={handleSubmit}>
-            <Form.Group controlId="form.SelectGame">
+            <Form.Group controlId={`form.SelectGame-${id}`}>
               <Form.Label>What&apos;s your difficulty level?</Form.Label>
-              <Form.Control
-                as="select"
-                value={value}
-                onChange={handleChange}
-              >
+              <Form.Control as="select" value={value} onChange={handleChange}>
                 <option value="easy">Easy</option>
                 <option value="medium">Medium</option>
                 <option value="hard">Hard</option>
@@ -34,8 +32,10 @@ function CardGame({
               </Form.Control>
             </Form.Group>
             <button
+              id={`game-btn-${id}`}
               type="submit"
-              className="arcade-btn"
+              className={isButtonClicked ? "arcade-btn active" : "arcade-btn"}
+              onClick={handleClick}
             >
               Let&apos;s play!
             </button>
@@ -49,15 +49,19 @@ function CardGame({
 CardGame.propTypes = {
   handleSubmit: PropTypes.func,
   handleChange: PropTypes.func,
+  handleClick: PropTypes.func,
+  isButtonClicked: PropTypes.bool,
   name: PropTypes.string,
   id: PropTypes.number,
-  value: PropTypes.string
+  value: PropTypes.string,
 };
 
 CardGame.defaultProps = {
   handleSubmit: () => {},
   handleChange: () => {},
-  value: 'easy',
+  handleClick: () => {},
+  isButtonClicked: false,
+  value: "easy",
   name: "",
   id: "",
 };

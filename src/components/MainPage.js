@@ -11,6 +11,7 @@ class MainPage extends React.Component {
     super(props);
     this.state = {
       gameSelectionValue: 'easy',
+      isButtonClicked: false,
       quizData: []
     };
   }
@@ -37,14 +38,25 @@ class MainPage extends React.Component {
       });
   };
 
+  handleClick = (e) => {
+    console.log("clicked", e.target);
+    e.stopPropagation();
+    const { isButtonClicked } = this.state;
+    this.setState({
+      isButtonClicked: !isButtonClicked
+    });
+  }
+
   handleChange = (e) => {
     console.log("changed", e.target.value);
+    e.stopPropagation();
     this.setState({
       gameSelectionValue: e.target.value
     })
   }
 
   handleSubmit = (e) => {
+    e.stopPropagation()
     const { gameSelectionValue } = this.state;
     console.log("submit game!", e);
     this.triviaApiCall(gameSelectionValue);
@@ -52,7 +64,7 @@ class MainPage extends React.Component {
   }
 
   render() {
-    const { gameSelectionValue } = this.state;
+    const { gameSelectionValue, isButtonClicked } = this.state;
     return (
       <div className="mainpage">
         <Container fluid>
@@ -98,6 +110,8 @@ class MainPage extends React.Component {
                 name={game.name}
                 handleSubmit={this.handleSubmit}
                 handleChange={this.handleChange}
+                handleClick={this.handleClick}
+                isButtonClicked={isButtonClicked}
                 value={gameSelectionValue}
               />
             ))}
