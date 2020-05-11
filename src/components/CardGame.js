@@ -18,7 +18,7 @@ const CardGame = ({ name, id }) => {
 
   return (
     <Col xs={12} sm={6} md={6} lg={4}>
-      {shouldRedirect && <Redirect to="/game" />}
+      {shouldRedirect && <Redirect to={`/game/${id}`} />}
       <Card id={`game-${id}`} className="card-game text-white">
         <div className="card-img-wrapper">
           <Card.Img src={cardGameImage} alt="Game" />
@@ -39,6 +39,9 @@ const CardGame = ({ name, id }) => {
                 <option value="random">Random</option>
               </Form.Control>
             </Form.Group>
+            {/* <Link id={`game-btn-${id}`} type="submit" className="arcade-btn" to={`/game/${id}`}>
+              Let&apos;s play!
+            </Link> */}
             <button id={`game-btn-${id}`} type="submit" className="arcade-btn">
               Let&apos;s play!
             </button>

@@ -1,19 +1,25 @@
-import React, { useState, useContext } from 'react';
-import GameIntro from './GameIntro';
-import GameUI from './GameUI';
-import { QuizAPIContext } from '../contexts/QuizAPIContext';
+import React, { useState, useContext } from "react";
+import GameIntro from "./GameIntro";
+import GameUI from "./GameUI";
+import QuizAPIContextProvider, { QuizAPIContext } from "../contexts/QuizAPIContext";
+
 
 const Game = () => {
   const { quizData } = useContext(QuizAPIContext);
-  console.log(quizData);
   const [isGameUILoaded, setIsGameUILoaded] = useState(false);
+
+  console.log(quizData);
 
   const handleClick = () => {
     setIsGameUILoaded(true);
   };
 
   return (
-    <div>{isGameUILoaded ? <GameUI /> : <GameIntro click={handleClick} />}</div>
+    <div>
+      <QuizAPIContextProvider>
+        {isGameUILoaded ? <GameUI /> : <GameIntro click={handleClick} />}
+      </QuizAPIContextProvider>
+    </div>
   );
 };
 
