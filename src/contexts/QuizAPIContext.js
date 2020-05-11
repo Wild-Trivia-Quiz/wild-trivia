@@ -1,17 +1,17 @@
-import React, { createContext, useState } from 'react';
-import axios from 'axios';
-import PropTypes from 'prop-types';
-import { withRouter } from 'react-router';
+import React, { createContext, useState} from "react";
+import axios from "axios";
+import PropTypes from "prop-types";
 
 export const QuizAPIContext = createContext();
 
-const QuizAPIContextProvider = ({ children, history }) => {
-  const [quizData, setQuizData] = useState([]);
+const QuizAPIContextProvider = ({ children}) => {
+  const [quizData, setQuizData] = useState(JSON.parse(localStorage.getItem("quizData")) || []);
+  const [shouldRedirect, setShouldRedirect] = useState(false);
 
   const triviaApiCall = (gameSelection) => {
-    let searchParams = '';
+    let searchParams = "";
 
-    if (gameSelection !== 'random') {
+    if (gameSelection !== "random") {
       searchParams = `&difficulty=${gameSelection}`;
     }
 
@@ -20,29 +20,29 @@ const QuizAPIContextProvider = ({ children, history }) => {
     axios.get(url).then((response) => {
       const data = response.data.results;
       setQuizData(data);
+      localStorage.setItem("quizData", JSON.stringify(quizData));
+      setShouldRedirect(true);
     });
   };
 
   const handleSubmit = (event, gameDifficulty) => {
     event.preventDefault();
     triviaApiCall(gameDifficulty);
-    history.push('/game');
   };
+
   return (
-    <QuizAPIContext.Provider value={{ quizData, handleSubmit }}>
+    <QuizAPIContext.Provider value={{ quizData, handleSubmit, shouldRedirect }}>
       {children}
     </QuizAPIContext.Provider>
   );
 };
 
 QuizAPIContextProvider.propTypes = {
-  children: PropTypes.func,
-  history: PropTypes.func,
+  children: PropTypes.func
 };
 
 QuizAPIContextProvider.defaultProps = {
-  children: '',
-  history: '',
+  children: ""
 };
 
-export default withRouter(QuizAPIContextProvider);
+export default QuizAPIContextProvider;
