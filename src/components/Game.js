@@ -1,30 +1,17 @@
-import React from 'react';
-import GameIntro from './GameIntro';
-import GameUI from './GameUI';
+import React, { useState } from "react";
+import GameIntro from "./GameIntro";
+import GameUI from "./GameUI";
 
-class Game extends React.Component {
-  constructor(props) {
-    super(props);
-    this.state = {
-      isGameUILoaded: false,
-    };
-  }
+const Game = () => {
+  const [isGameUILoaded, setIsGameUILoaded] = useState(false);
 
-  handleClick = () => {
-    this.setState({
-      isGameUILoaded: true,
-    });
+  const handleClick = () => {
+    setIsGameUILoaded(true);
   };
 
-  render() {
-    const { isGameUILoaded } = this.state;
-
-    return (
-      <div>
-        {isGameUILoaded ? <GameUI /> : <GameIntro click={this.handleClick} />}
-      </div>
-    );
-  }
-}
+  return (
+    <div>{isGameUILoaded ? <GameUI /> : <GameIntro click={handleClick} />}</div>
+  );
+};
 
 export default Game;

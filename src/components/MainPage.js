@@ -1,51 +1,14 @@
 import React from "react";
-import axios from "axios";
 import "./MainPage.scss";
 import { Container, Row, Col } from "react-bootstrap";
 import CardGame from "./CardGame";
 import logo from "../img/logo-white.png";
 import gamesnames from "../gamesnames.json";
+import QuizAPIContextProvider from "../contexts/QuizAPIContext";
 
-class MainPage extends React.Component {
-  constructor(props) {
-    super(props);
-    this.state = {
-      quizData: []
-    };
-  }
-
-  triviaApiCall = (gameSelection) => {
-    console.log(`gameSelection ${gameSelection}`);
-
-    let searchParams = "";
-    
-    if (gameSelection !== "random") {
-      searchParams = `&difficulty=${gameSelection}`;
-    }
-    
-    axios
-      .get(
-        `https://opentdb.com/api.php?amount=10&category=23${searchParams}&type=multiple&encode=url3986`
-      )
-      .then((response) => {
-        console.log(response.data.results);
-        const quizData = response.data.results;
-        this.setState({
-          quizData,
-        });
-      });
-  };
-
-
-  handleSubmit = (event, gameDifficulty) => {
-    event.preventDefault();
-    console.log(`gameDifficulty ${gameDifficulty}`);
-    this.triviaApiCall(gameDifficulty);
-    
-  }
-
-  render() {
-    return (
+const MainPage = () => {
+  return (
+    <QuizAPIContextProvider>
       <div className="mainpage">
         <Container fluid>
           <Row className="content-block">
@@ -84,18 +47,13 @@ class MainPage extends React.Component {
           </Row>
           <Row className="content-block">
             {gamesnames.map((game) => (
-              <CardGame
-                key={game.id}
-                id={game.id}
-                name={game.name}
-                handleSubmit={this.handleSubmit}
-              />
+              <CardGame key={game.id} id={game.id} name={game.name} />
             ))}
           </Row>
         </Container>
       </div>
-    );
-  }
-}
+    </QuizAPIContextProvider>
+  );
+};
 
 export default MainPage;
