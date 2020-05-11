@@ -4,11 +4,9 @@ import { Container, Row, Col } from "react-bootstrap";
 import CardGame from "./CardGame";
 import logo from "../img/logo-white.png";
 import gamesnames from "../gamesnames.json";
-import QuizAPIContextProvider from "../contexts/QuizAPIContext";
 
 const MainPage = () => {
   return (
-    <QuizAPIContextProvider>
       <div className="mainpage">
         <Container fluid>
           <Row className="content-block">
@@ -52,7 +50,6 @@ const MainPage = () => {
           </Row>
         </Container>
       </div>
-    </QuizAPIContextProvider>
   );
 };
 

@@ -5,15 +5,12 @@ import PropTypes from 'prop-types';
 export const QuizAPIContext = createContext();
 
 const QuizAPIContextProvider = ({ children }) => {
-  const [quizData, setQuizData] = useState(
-    JSON.parse(localStorage.getItem('quizData')) || []
-  );
+  const [quizData, setQuizData] = useState([]);
   const [shouldRedirect, setShouldRedirect] = useState(false);
 
   useEffect(() => {
     if (quizData.length) {
       setShouldRedirect(true);
-      localStorage.setItem('quizData', JSON.stringify(quizData));
     }
   }, [quizData]);
 
@@ -29,13 +26,13 @@ const QuizAPIContextProvider = ({ children }) => {
     });
   };
 
-  const handleSubmit = (event, gameDifficulty) => {
-    event.preventDefault();
-    triviaApiCall(gameDifficulty);
-  };
+  // const handleSubmit = (event, gameDifficulty) => {
+  //   event.preventDefault();
+  //   triviaApiCall(gameDifficulty);
+  // };
 
   return (
-    <QuizAPIContext.Provider value={{ quizData, handleSubmit, shouldRedirect }}>
+    <QuizAPIContext.Provider value={{ quizData, shouldRedirect, triviaApiCall}}>
       {children}
     </QuizAPIContext.Provider>
   );

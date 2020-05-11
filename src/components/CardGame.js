@@ -7,7 +7,7 @@ import cardGameImage from "../img/cardgame.jpg";
 import { QuizAPIContext } from "../contexts/QuizAPIContext";
 
 const CardGame = ({ name, id }) => {
-  const { handleSubmit, shouldRedirect } = useContext(QuizAPIContext);
+  const { triviaApiCall, shouldRedirect } = useContext(QuizAPIContext);
 
   const [gameSelectionValue, setGameSelectionValue] = useState("easy");
 
@@ -15,6 +15,13 @@ const CardGame = ({ name, id }) => {
     console.log("selectChangeHandler", event.target.value);
     setGameSelectionValue(event.target.value);
   };
+
+  const handleSubmit = (event) => {
+    event.preventDefault();
+    triviaApiCall(gameSelectionValue);
+  };
+
+  console.log(id);
 
   return (
     <Col xs={12} sm={6} md={6} lg={4}>
@@ -25,7 +32,7 @@ const CardGame = ({ name, id }) => {
         </div>
         <Card.ImgOverlay>
           <h2>{name}</h2>
-          <Form onSubmit={(event) => handleSubmit(event, gameSelectionValue)}>
+          <Form onSubmit={handleSubmit}>
             <Form.Group controlId={`form.SelectGame-${id}`}>
               <Form.Label>What&apos;s your difficulty level?</Form.Label>
               <Form.Control

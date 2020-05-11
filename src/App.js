@@ -11,7 +11,7 @@ function App() {
   return (
     <Router>
       <div>
-        <nav>
+        {/*  <nav>
           <ul>
             <li>
               <Link to="/">Homepage</Link>
@@ -23,17 +23,17 @@ function App() {
               <Link to="/game">Game</Link>
             </li>
           </ul>
-        </nav>
+        </nav> */}
 
-        <QuizAPIContextProvider>
-          <HomepageContextProvider>
+        <HomepageContextProvider>
+          <QuizAPIContextProvider>
             <Switch>
               <Route exact path="/" component={Homepage} />
               <Route path="/game" component={Game} />
               <Route path="/about" component={About} />
             </Switch>
-          </HomepageContextProvider>
-        </QuizAPIContextProvider>
+          </QuizAPIContextProvider>
+        </HomepageContextProvider>
       </div>
     </Router>
   );
