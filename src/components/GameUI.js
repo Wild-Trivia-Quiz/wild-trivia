@@ -1,7 +1,7 @@
-import React from 'react';
+import React from "react";
 
-function GameUI() {
+const GameUI = () => {
   return <div>this is the game ui</div>;
-}
+};
 
 export default GameUI;
