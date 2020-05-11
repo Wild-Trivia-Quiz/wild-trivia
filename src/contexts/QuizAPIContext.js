@@ -1,6 +1,7 @@
-import React, { createContext, useState } from "react";
-import axios from "axios";
-import PropTypes from "prop-types";
+import React, { createContext, useState } from 'react';
+import axios from 'axios';
+import PropTypes from 'prop-types';
+import { withRouter } from 'react-router';
 
 export const QuizAPIContext = createContext();
 
@@ -8,9 +9,9 @@ const QuizAPIContextProvider = ({ children, history }) => {
   const [quizData, setQuizData] = useState([]);
 
   const triviaApiCall = (gameSelection) => {
-    let searchParams = "";
+    let searchParams = '';
 
-    if (gameSelection !== "random") {
+    if (gameSelection !== 'random') {
       searchParams = `&difficulty=${gameSelection}`;
     }
 
@@ -25,7 +26,7 @@ const QuizAPIContextProvider = ({ children, history }) => {
   const handleSubmit = (event, gameDifficulty) => {
     event.preventDefault();
     triviaApiCall(gameDifficulty);
-    history.push("/game");
+    history.push('/game');
   };
   return (
     <QuizAPIContext.Provider value={{ quizData, handleSubmit }}>
@@ -40,8 +41,8 @@ QuizAPIContextProvider.propTypes = {
 };
 
 QuizAPIContextProvider.defaultProps = {
-  children: "",
-  history: "",
+  children: '',
+  history: '',
 };
 
-export default QuizAPIContextProvider;
+export default withRouter(QuizAPIContextProvider);
