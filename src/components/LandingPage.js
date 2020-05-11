@@ -1,9 +1,17 @@
-import React from "react";
+import React, {useContext} from "react";
+import { HomepageContext } from "../contexts/HomepageContext";
 
 const LandingPage = () => {
+  const { handleClick } = useContext(HomepageContext);
+
   return (
     <div>
-      <div>Selected Landing Page</div>
+      <div>Landing Page</div>
+      <div>
+        <button type="button" onClick={handleClick}>
+          I&apos;m ready, bring it on!
+        </button>
+      </div>
     </div>
   );
 };

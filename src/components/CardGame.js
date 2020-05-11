@@ -1,4 +1,5 @@
 import React, { useState, useContext } from "react";
+import { Redirect } from "react-router-dom";
 import "./CardGame.scss";
 import { Card, Form, Col } from "react-bootstrap";
 import PropTypes from "prop-types";
@@ -6,7 +7,7 @@ import cardGameImage from "../img/cardgame.jpg";
 import { QuizAPIContext } from "../contexts/QuizAPIContext";
 
 const CardGame = ({ name, id }) => {
-  const { handleSubmit } = useContext(QuizAPIContext);
+  const { handleSubmit, shouldRedirect } = useContext(QuizAPIContext);
 
   const [gameSelectionValue, setGameSelectionValue] = useState("easy");
 
@@ -17,6 +18,7 @@ const CardGame = ({ name, id }) => {
 
   return (
     <Col xs={12} sm={6} md={6} lg={4}>
+      {shouldRedirect && <Redirect to="/game" />}
       <Card id={`game-${id}`} className="card-game text-white">
         <div className="card-img-wrapper">
           <Card.Img src={cardGameImage} alt="Game" />

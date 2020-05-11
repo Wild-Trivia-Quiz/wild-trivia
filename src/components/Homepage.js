@@ -1,20 +1,16 @@
-import React, { useState } from "react";
+import React, { useContext } from "react";
 import MainPage from "./MainPage";
 import LandingPage from "./LandingPage";
+import {HomepageContext} from "../contexts/HomepageContext";
 
 const Homepage = () => {
-  const [isMainPageLoaded, setIsMainPageLoaded] = useState(false);
-
-  const handleClick = () => {
-    setIsMainPageLoaded(true);
-  };
+  const { isMainPageLoaded } = useContext(HomepageContext);
 
   return (
     <div>
-      <button type="button" onClick={handleClick}>
-        Click
-      </button>
-      {isMainPageLoaded ? <MainPage /> : <LandingPage />}
+      
+        {isMainPageLoaded ? <MainPage /> : <LandingPage />}
+      
     </div>
   );
 };
