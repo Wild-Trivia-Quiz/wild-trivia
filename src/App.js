@@ -1,11 +1,11 @@
 import React from "react";
-import "./App.scss";
-import { BrowserRouter as Router, Switch, Route, Link } from "react-router-dom";
+import { BrowserRouter as Router, Switch, Route } from "react-router-dom";
 import Homepage from "./components/Homepage";
 import About from "./components/About";
 import Game from "./components/Game";
 import HomepageContextProvider from "./contexts/HomepageContext";
 import QuizAPIContextProvider from "./contexts/QuizAPIContext";
+import "./App.scss";
 
 function App() {
   return (
