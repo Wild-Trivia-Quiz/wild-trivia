@@ -12,7 +12,7 @@ const CardGame = ({ name, id, category, categoryName, instructions }) => {
   const [gameSelectionValue, setGameSelectionValue] = useState('easy');
 
   const selectChangeHandler = (event) => {
-    console.log('selectChangeHandler', event.target.value);
+    //console.log('selectChangeHandler', event.target.value);
     setGameSelectionValue(event.target.value);
   };
 
