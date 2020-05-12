@@ -1,10 +1,10 @@
 import React, { useState, useContext } from "react";
 import { Redirect } from "react-router-dom";
-import "./CardGame.scss";
 import { Card, Form, Col } from "react-bootstrap";
 import PropTypes from "prop-types";
 import cardGameImage from "../img/cardgame.jpg";
 import { QuizAPIContext } from "../contexts/QuizAPIContext";
+import "./CardGame.scss";
 
 const CardGame = ({ name, id }) => {
   const { triviaApiCall, shouldRedirect } = useContext(QuizAPIContext);
