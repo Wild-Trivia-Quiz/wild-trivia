@@ -1,12 +1,14 @@
 import React from "react";
 import { Container, Row, Col } from "react-bootstrap";
 import CardGame from "./CardGame";
+import Footer from "./Footer";
 import logo from "../img/logo-white.png";
 import gamesnames from "../gamesnames.json";
 import "./MainPage.scss";
 
 const MainPage = () => {
   return (
+    <div>
       <div className="mainpage">
         <Container fluid>
           <Row className="content-block">
@@ -49,6 +51,8 @@ const MainPage = () => {
             ))}
           </Row>
         </Container>
+      </div>
+      <Footer />
       </div>
   );
 };
