@@ -7,22 +7,28 @@ export const QuizAPIContext = createContext();
 const QuizAPIContextProvider = ({ children }) => {
   const [quizData, setQuizData] = useState([]);
   const [shouldRedirect, setShouldRedirect] = useState(false);
+  const [quizName, setQuizName] = useState('');
+
+  const toggleShouldRedirectGame = () => {
+    setShouldRedirect(!shouldRedirect);
+  };
 
   useEffect(() => {
     if (quizData.length) {
-      setShouldRedirect(true);
+      toggleShouldRedirectGame();
     }
   }, [quizData]);
 
-  const triviaApiCall = (gameSelection) => {
+  const triviaApiCall = (gameSelection, category, name) => {
     let searchParams = '';
     if (gameSelection !== 'random') {
       searchParams = `&difficulty=${gameSelection}`;
     }
-    const url = `https://opentdb.com/api.php?amount=10&category=23${searchParams}&type=multiple&encode=url3986`;
+    const url = `https://opentdb.com/api.php?amount=10&category=${category}${searchParams}&type=multiple&encode=url3986`;
     axios.get(url).then((response) => {
       const data = response.data.results;
       setQuizData(data);
+      setQuizName(name);
     });
   };
 
@@ -32,7 +38,13 @@ const QuizAPIContextProvider = ({ children }) => {
   // };
 
   return (
-    <QuizAPIContext.Provider value={{ quizData, shouldRedirect, triviaApiCall}}>
+    <QuizAPIContext.Provider
+      value={{
+        quizData,
+        shouldRedirect,
+        triviaApiCall,
+        toggleShouldRedirectGame,
+      }}>
       {children}
     </QuizAPIContext.Provider>
   );
