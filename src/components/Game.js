@@ -6,7 +6,7 @@ import { QuizAPIContext } from '../contexts/QuizAPIContext';
 import './Game.scss';
 
 const Game = () => {
-  const { toggleShouldRedirectGame, quizData } = useContext(QuizAPIContext);
+  const { toggleShouldRedirectGame, quizData, quizName, quizCategoryName, quizQuestions, quizInstructions } = useContext(QuizAPIContext);
   console.log(quizData);
 
   useEffect(() => {
@@ -27,7 +27,8 @@ const Game = () => {
             sm={12}
             md={{ span: 8, offset: 2 }}
             lg={{ span: 8, offset: 2 }}>
-            <h1>game name</h1>
+            <h1>{quizName}</h1>
+            <p>Category: {quizCategoryName}</p>
           </Col>
           <Col
             xs={12}
@@ -35,9 +36,7 @@ const Game = () => {
             md={{ span: 8, offset: 2 }}
             lg={{ span: 8, offset: 2 }}>
             <p>
-              Game instructions here. Lorem ipsum dolor sit amet, consectetur
-              adipiscing elit, sed do eiusmod tempor incididunt ut labore et
-              dolore magna aliqua.
+             {quizInstructions}
             </p>
           </Col>
         </Row>
@@ -47,19 +46,6 @@ const Game = () => {
             sm={12}
             md={{ span: 8, offset: 2 }}
             lg={{ span: 8, offset: 2 }}>
-            {/*  <form onSubmit={handleSubmitAvatar}>
-              <label htmlFor="avatar">Set a nickname:</label>
-              <input
-                type="text"
-                name="avatar"
-                id="avatar"
-                value={avatar}
-                onChange={handleChangeAvatar}
-              />
-              <button type="submit" className="arcade-btn">
-                Bring it on!
-              </button>
-            </form> */}
             <button type='submit' className='arcade-btn'>
               Bring it on!
             </button>

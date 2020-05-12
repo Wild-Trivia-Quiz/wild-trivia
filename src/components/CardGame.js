@@ -6,7 +6,7 @@ import cardGameImage from '../img/cardgame.jpg';
 import { QuizAPIContext } from '../contexts/QuizAPIContext';
 import './CardGame.scss';
 
-const CardGame = ({ name, id, category }) => {
+const CardGame = ({ name, id, category, categoryName, instructions }) => {
   const { triviaApiCall, shouldRedirect } = useContext(QuizAPIContext);
 
   const [gameSelectionValue, setGameSelectionValue] = useState('easy');
@@ -18,10 +18,8 @@ const CardGame = ({ name, id, category }) => {
 
   const handleSubmit = (event) => {
     event.preventDefault();
-    triviaApiCall(gameSelectionValue, category, name);
+    triviaApiCall(gameSelectionValue, category, name, categoryName, instructions);
   };
-
-  console.log(id);
 
   return (
     <Col xs={12} sm={6} md={6} lg={4}>
@@ -59,12 +57,14 @@ CardGame.propTypes = {
   name: PropTypes.string,
   id: PropTypes.number,
   category: PropTypes.number,
+  categoryName: PropTypes.string
 };
 
 CardGame.defaultProps = {
   name: '',
   id: '',
   category: '',
+  categoryName: ''
 };
 
 export default CardGame;
