@@ -1,9 +1,9 @@
 import React from "react";
-import "./MainPage.scss";
 import { Container, Row, Col } from "react-bootstrap";
 import CardGame from "./CardGame";
 import logo from "../img/logo-white.png";
 import gamesnames from "../gamesnames.json";
+import "./MainPage.scss";
 
 const MainPage = () => {
   return (

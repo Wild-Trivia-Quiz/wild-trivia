@@ -1,0 +1,31 @@
+//fonts:
+$font-primary: 'Press Start 2P',
+cursive;
+$font-secondary: 'Open Sans',
+sans-serif;
+
+body {
+  font-size: 14px;
+  font-family: $font-secondary;
+}
+
+h1,
+h2,
+button,
+select {
+  font-family: $font-primary;
+  text-transform: uppercase;
+}
+
+h3,
+h4,
+h5,
+h6 {
+  font-family: $font-secondary;
+}
+
+@media (max-width: 991.98px) {
+  h1 {
+    font-size: 2rem;
+  }
+}

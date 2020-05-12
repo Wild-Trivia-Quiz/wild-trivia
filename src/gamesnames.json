@@ -1,15 +1,18 @@
 [
     {
       "id": 1,
-      "name": "Game A"
+      "name": "Game A",
+      "instructions": "..."
     },
     {
       "id": 2,
-      "name": "Game B"
+      "name": "Game B",
+      "instructions": "..."
     },
     {
       "id": 3,
-      "name": "Game C"
+      "name": "Game C",
+      "instructions": "..."
     }
   ]
   
