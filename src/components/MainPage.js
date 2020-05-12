@@ -50,6 +50,8 @@ const MainPage = () => {
                 id={game.id}
                 name={game.name}
                 category={game.category}
+                categoryName={game.categoryName}
+                instructions={game.instructions}
               />
             ))}
           </Row>

@@ -1,20 +1,23 @@
 [
   {
     "id": 1,
-    "name": "History",
-    "instructions": "...",
-    "category": 23
+    "name": "History Game",
+    "instructions": "instructions  Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.",
+    "category": 23,
+    "categoryName": "History"
   },
   {
     "id": 2,
-    "name": "Science & Nature",
-    "instructions": "...",
-    "category": 17
+    "name": "Science & Nature Game",
+    "instructions": "instructions  Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.",
+    "category": 17,
+    "categoryName": "Science & Nature"
   },
   {
     "id": 3,
-    "name": "Films",
-    "instructions": "...",
-    "category": 11
+    "name": "Films Game",
+    "instructions": "instructions  Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.",
+    "category": 11,
+    "categoryName": "Film"
   }
 ]
