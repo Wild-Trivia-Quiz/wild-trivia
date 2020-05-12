@@ -1,18 +1,20 @@
 [
-    {
-      "id": 1,
-      "name": "Game A",
-      "instructions": "..."
-    },
-    {
-      "id": 2,
-      "name": "Game B",
-      "instructions": "..."
-    },
-    {
-      "id": 3,
-      "name": "Game C",
-      "instructions": "..."
-    }
-  ]
-  
+  {
+    "id": 1,
+    "name": "History",
+    "instructions": "...",
+    "category": 23
+  },
+  {
+    "id": 2,
+    "name": "Science & Nature",
+    "instructions": "...",
+    "category": 17
+  },
+  {
+    "id": 3,
+    "name": "Films",
+    "instructions": "...",
+    "category": 11
+  }
+]

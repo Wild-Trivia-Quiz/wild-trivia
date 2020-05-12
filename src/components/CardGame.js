@@ -1,34 +1,34 @@
-import React, { useState, useContext } from "react";
-import { Redirect } from "react-router-dom";
-import { Card, Form, Col } from "react-bootstrap";
-import PropTypes from "prop-types";
-import cardGameImage from "../img/cardgame.jpg";
-import { QuizAPIContext } from "../contexts/QuizAPIContext";
-import "./CardGame.scss";
+import React, { useState, useContext } from 'react';
+import { Redirect } from 'react-router-dom';
+import { Card, Form, Col } from 'react-bootstrap';
+import PropTypes from 'prop-types';
+import cardGameImage from '../img/cardgame.jpg';
+import { QuizAPIContext } from '../contexts/QuizAPIContext';
+import './CardGame.scss';
 
-const CardGame = ({ name, id }) => {
+const CardGame = ({ name, id, category }) => {
   const { triviaApiCall, shouldRedirect } = useContext(QuizAPIContext);
 
-  const [gameSelectionValue, setGameSelectionValue] = useState("easy");
+  const [gameSelectionValue, setGameSelectionValue] = useState('easy');
 
   const selectChangeHandler = (event) => {
-    console.log("selectChangeHandler", event.target.value);
+    console.log('selectChangeHandler', event.target.value);
     setGameSelectionValue(event.target.value);
   };
 
   const handleSubmit = (event) => {
     event.preventDefault();
-    triviaApiCall(gameSelectionValue);
+    triviaApiCall(gameSelectionValue, category, name);
   };
 
   console.log(id);
 
   return (
     <Col xs={12} sm={6} md={6} lg={4}>
-      {shouldRedirect && <Redirect to="/game" />}
-      <Card id={`game-${id}`} className="card-game text-white">
-        <div className="card-img-wrapper">
-          <Card.Img src={cardGameImage} alt="Game" />
+      {shouldRedirect && <Redirect to='/game' />}
+      <Card id={`game-${id}`} className='card-game text-white'>
+        <div className='card-img-wrapper'>
+          <Card.Img src={cardGameImage} alt='Game' />
         </div>
         <Card.ImgOverlay>
           <h2>{name}</h2>
@@ -36,17 +36,16 @@ const CardGame = ({ name, id }) => {
             <Form.Group controlId={`form.SelectGame-${id}`}>
               <Form.Label>What&apos;s your difficulty level?</Form.Label>
               <Form.Control
-                as="select"
+                as='select'
                 value={gameSelectionValue}
-                onChange={selectChangeHandler}
-              >
-                <option value="easy">Easy</option>
-                <option value="medium">Medium</option>
-                <option value="hard">Hard</option>
-                <option value="random">Random</option>
+                onChange={selectChangeHandler}>
+                <option value='easy'>Easy</option>
+                <option value='medium'>Medium</option>
+                <option value='hard'>Hard</option>
+                <option value='random'>Random</option>
               </Form.Control>
             </Form.Group>
-            <button id={`game-btn-${id}`} type="submit" className="arcade-btn">
+            <button id={`game-btn-${id}`} type='submit' className='arcade-btn'>
               Let&apos;s play!
             </button>
           </Form>
@@ -56,11 +55,16 @@ const CardGame = ({ name, id }) => {
   );
 };
 
-CardGame.propTypes = { name: PropTypes.string, id: PropTypes.number };
+CardGame.propTypes = {
+  name: PropTypes.string,
+  id: PropTypes.number,
+  category: PropTypes.number,
+};
 
 CardGame.defaultProps = {
-  name: "",
-  id: "",
+  name: '',
+  id: '',
+  category: '',
 };
 
 export default CardGame;
