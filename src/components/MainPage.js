@@ -25,18 +25,14 @@ const MainPage = () => {
                     sm={12}
                     md={{ span: 8, offset: 2 }}
                     lg={{ span: 12, offset: 0 }}>
-                    <h1>Hey you && welcome to Wild Trivia games!</h1>
+                    <h1>Hey you & welcome to Wild Trivia games!</h1>
                   </Col>
                   <Col
                     xs={12}
                     sm={12}
                     md={{ span: 8, offset: 2 }}
                     lg={{ span: 12, offset: 0 }}>
-                    <p>
-                      Are you ready to start?! Here are some of our top trivia
-                      games for you to play. Lorem ipsum dolor sit amet,
-                      consectetur adipiscing elit, sed do eiusmod tempor
-                      incididunt ut labore et dolore magna aliqua.
+                    <p>Let&apos;s get that brain to work, shall we? Have you heard the pulleys moving? How much knowledge have you accumulated over the years? What do you know about Music, Movies, Science, etc? We have several trivia to exercise your knowledge. Choose yours!
                     </p>
                   </Col>
                 </Row>

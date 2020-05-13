@@ -2,6 +2,7 @@ import React, { useContext } from "react";
 import { QuizAPIContext } from "../contexts/QuizAPIContext";
 import { GameContext } from "../contexts/GameContext";
 import GameResult from "./GameResult";
+import './QuestionAnswers.scss';
 
 const QuestionAnswers = () => {
   const { quizQuestionsAndAnswers } = useContext(QuizAPIContext);
@@ -20,7 +21,7 @@ const QuestionAnswers = () => {
                 key={quizRound.id}
                 id={`round-${quizRound.id}`}
               >
-                <p>{quizRound.question}</p>
+                <p className="question">{quizRound.question}</p>
                 <ul>
                   <li>
                     <button
@@ -29,7 +30,7 @@ const QuestionAnswers = () => {
                         handleClick(event, 1, quizRound.correctAnswerPosition)
                       }
                     >
-                      <span>1 -</span>
+                      <span>1 · </span>
                       {quizRound.option1}
                     </button>
                   </li>
@@ -40,7 +41,7 @@ const QuestionAnswers = () => {
                         handleClick(event, 2, quizRound.correctAnswerPosition)
                       }
                     >
-                      <span>2 -</span>
+                      <span>2 · </span>
                       {quizRound.option2}
                     </button>
                   </li>
@@ -51,7 +52,7 @@ const QuestionAnswers = () => {
                         handleClick(event, 3, quizRound.correctAnswerPosition)
                       }
                     >
-                      <span>3 -</span>
+                      <span>3 · </span>
                       {quizRound.option3}
                     </button>
                   </li>
@@ -62,7 +63,7 @@ const QuestionAnswers = () => {
                         handleClick(event, 4, quizRound.correctAnswerPosition)
                       }
                     >
-                      <span>4 -</span>
+                      <span>4 · </span>
                       {quizRound.option4}
                     </button>
                   </li>

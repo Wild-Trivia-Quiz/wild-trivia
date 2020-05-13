@@ -13,6 +13,7 @@ const QuizAPIContextProvider = ({ children }) => {
   const [quizCategoryName, setQuizCategoryName] = useState("");
   const [quizInstructions, setQuizInstructions] = useState("");
   const [quizQuestionsAndAnswers, setQuizQuestionsAndAnswers] = useState({});
+  const [quizDifficulty, setQuizDifficulty] = useState("");
 
   const toggleShouldRedirectGame = () => {
     setShouldRedirect(!shouldRedirect);
@@ -35,6 +36,7 @@ const QuizAPIContextProvider = ({ children }) => {
     setQuizName(name);
     setQuizCategoryName(categoryName);
     setQuizInstructions(instructions);
+    setQuizDifficulty(gameSelection);
     let searchParams = "";
     if (gameSelection !== "random") {
       searchParams = `&difficulty=${gameSelection}`;
@@ -72,7 +74,7 @@ const QuizAPIContextProvider = ({ children }) => {
         return questionAndAnwsersObj;
       });
 
-      console.log(dataQuestionsAndAnwsers);
+      //console.log(dataQuestionsAndAnwsers);
       setQuizQuestionsAndAnswers(dataQuestionsAndAnwsers);
     });
   };
@@ -85,6 +87,7 @@ const QuizAPIContextProvider = ({ children }) => {
         quizCategoryName,
         quizInstructions,
         quizQuestionsAndAnswers,
+        quizDifficulty,
         shouldRedirect,
         triviaApiCall,
         toggleShouldRedirectGame,
