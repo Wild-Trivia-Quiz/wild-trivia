@@ -1,17 +1,17 @@
-import React, { createContext, useState, useEffect } from 'react';
-import axios from 'axios';
-import PropTypes from 'prop-types';
+import React, { createContext, useState, useEffect } from "react";
+import axios from "axios";
+import PropTypes from "prop-types";
 
 export const QuizAPIContext = createContext();
 
 const QuizAPIContextProvider = ({ children }) => {
   const [quizData, setQuizData] = useState(
-    [] || JSON.parse(sessionStorage.getItem('quizData'))
+    [] || JSON.parse(sessionStorage.getItem("quizData"))
   );
   const [shouldRedirect, setShouldRedirect] = useState(false);
-  const [quizName, setQuizName] = useState('');
-  const [quizCategoryName, setQuizCategoryName] = useState('');
-  const [quizInstructions, setQuizInstructions] = useState('');
+  const [quizName, setQuizName] = useState("");
+  const [quizCategoryName, setQuizCategoryName] = useState("");
+  const [quizInstructions, setQuizInstructions] = useState("");
   const [quizQuestionsAndAnswers, setQuizQuestionsAndAnswers] = useState({});
 
   const toggleShouldRedirectGame = () => {
@@ -19,7 +19,7 @@ const QuizAPIContextProvider = ({ children }) => {
   };
 
   useEffect(() => {
-    sessionStorage.setItem('quizData', JSON.stringify(quizData));
+    sessionStorage.setItem("quizData", JSON.stringify(quizData));
     if (quizData.length) {
       toggleShouldRedirectGame();
     }
@@ -35,8 +35,8 @@ const QuizAPIContextProvider = ({ children }) => {
     setQuizName(name);
     setQuizCategoryName(categoryName);
     setQuizInstructions(instructions);
-    let searchParams = '';
-    if (gameSelection !== 'random') {
+    let searchParams = "";
+    if (gameSelection !== "random") {
       searchParams = `&difficulty=${gameSelection}`;
     }
     const url = `https://opentdb.com/api.php?amount=10&category=${category}${searchParams}&type=multiple`;
@@ -44,9 +44,12 @@ const QuizAPIContextProvider = ({ children }) => {
       const data = response.data.results;
       setQuizData(data);
 
-      const dataQuestionsAndAnwsers = data.map((element) => {
+      const dataQuestionsAndAnwsers = data.map((element, index) => {
         //object with question, correct anwser position and all the 4 options:
-        const questionAndAnwsersObj = { question: element.question };
+        const questionAndAnwsersObj = {
+          id: index + 1,
+          question: element.question,
+        };
 
         //array with 3 incorrect answers:
         const answersArray = [...element.incorrect_answers];
@@ -63,13 +66,13 @@ const QuizAPIContextProvider = ({ children }) => {
 
         //save in the object each "option" answer and position:
         answersArray.map((option, index) => {
-          questionAndAnwsersObj['option' + (index + 1)] = option;
+          questionAndAnwsersObj["option" + (index + 1)] = option;
         });
 
         return questionAndAnwsersObj;
       });
 
-      //console.log(dataQuestionsAndAnwsers);
+      console.log(dataQuestionsAndAnwsers);
       setQuizQuestionsAndAnswers(dataQuestionsAndAnwsers);
     });
   };
@@ -85,7 +88,8 @@ const QuizAPIContextProvider = ({ children }) => {
         shouldRedirect,
         triviaApiCall,
         toggleShouldRedirectGame,
-      }}>
+      }}
+    >
       {children}
     </QuizAPIContext.Provider>
   );
@@ -96,7 +100,7 @@ QuizAPIContextProvider.propTypes = {
 };
 
 QuizAPIContextProvider.defaultProps = {
-  children: '',
+  children: "",
 };
 
 export default QuizAPIContextProvider;
