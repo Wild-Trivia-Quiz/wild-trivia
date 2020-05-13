@@ -5,9 +5,7 @@ import './BackBtn.scss';
 
 const BackBtn = ({ url }) => {
   return (
-    <div className="back-btn-wrapper">
       <Link to={url} className="back-btn" />
-    </div>
   );
 };
 BackBtn.propTypes = {
