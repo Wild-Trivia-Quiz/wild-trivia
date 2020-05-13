@@ -12,6 +12,7 @@ const Game = () => {
     quizName,
     quizCategoryName,
     quizInstructions,
+    quizDifficulty
   } = useContext(QuizAPIContext);
 
   const { startGameClick, isGameStarted, score, round } = useContext(
@@ -39,7 +40,6 @@ const Game = () => {
                 <h1>{quizName}</h1>
                 <p className="category">Category: {quizCategoryName}</p>
               </li>
-              
             </ul>
           </div>
           <Container fluid>
@@ -60,43 +60,50 @@ const Game = () => {
           <div className="game-nav">
             <BackBtn url="/" />
           </div>
-          <Container fluid>
-            <Row className="content-block">
-              <Col
-                xs={12}
-                sm={12}
-                md={{ span: 8, offset: 2 }}
-                lg={{ span: 8, offset: 2 }}
-              >
-                <h1>{quizName}</h1>
-                <p>Category: {quizCategoryName}</p>
-              </Col>
-              <Col
-                xs={12}
-                sm={12}
-                md={{ span: 8, offset: 2 }}
-                lg={{ span: 8, offset: 2 }}
-              >
-                <p>{quizInstructions}</p>
-              </Col>
-            </Row>
-            <Row className="content-block">
-              <Col
-                xs={12}
-                sm={12}
-                md={{ span: 8, offset: 2 }}
-                lg={{ span: 8, offset: 2 }}
-              >
-                <button
-                  type="submit"
-                  className="arcade-btn"
-                  onClick={startGameClick}
+          <article className="game-welcome">
+            <Container fluid>
+              <Row className="content-block">
+                <Col
+                  xs={12}
+                  sm={12}
+                  md={{ span: 8, offset: 2 }}
+                  lg={{ span: 8, offset: 2 }}
                 >
-                  Bring it on!
-                </button>
-              </Col>
-            </Row>
-          </Container>
+                  <p>Let&apos;s play it {quizDifficulty}</p>
+                  <h1>{quizName}</h1>
+                  <h2 className="category">{quizCategoryName} trivia</h2>
+                </Col>
+                <Col
+                  xs={12}
+                  sm={12}
+                  md={{ span: 8, offset: 2 }}
+                  lg={{ span: 8, offset: 2 }}
+                >
+                  <p>{quizInstructions}</p>
+                  <p className="rules">
+                    There are ten rounds of questions, with four options each
+                    and you have to find the right answer.
+                  </p>
+                </Col>
+              </Row>
+              <Row>
+                <Col
+                  xs={12}
+                  sm={12}
+                  md={{ span: 8, offset: 2 }}
+                  lg={{ span: 8, offset: 2 }}
+                >
+                  <button
+                    type="submit"
+                    className="arcade-btn"
+                    onClick={startGameClick}
+                  >
+                    Bring it on!
+                  </button>
+                </Col>
+              </Row>
+            </Container>
+          </article>
         </div>
       )}
     </section>

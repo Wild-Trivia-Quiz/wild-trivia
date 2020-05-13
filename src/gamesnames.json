@@ -2,7 +2,7 @@
   {
     "id": 1,
     "name": "Wild wild past",
-    "instructions": "instructions  Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.",
+    "instructions": "Remember history lessons? You are about to enter the time machine on a journey into the past in this category of History.",
     "category": 23,
     "categoryName": "History",
     "image": "./img/cardgame.jpg"
@@ -10,7 +10,7 @@
   {
     "id": 2,
     "name": "Into the (un)known",
-    "instructions": "instructions  Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.",
+    "instructions": "Put on an investigator's gown and grab the magnifying glass because you're about to enter the world of the unknown in this category of Science & Nature.",
     "category": 17,
     "categoryName": "Science & Nature",
     "image": ""
@@ -18,9 +18,49 @@
   {
     "id": 3,
     "name": "Hollywood & friends",
-    "instructions": "instructions  Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.",
+    "instructions": "What's your favorite movie? Welcome to the Hollywood world. Films, directors, actors, years and years of cinema are present in this category of Films.",
     "category": 11,
     "categoryName": "Film",
+    "image": ""
+  },
+  {
+    "id": 4,
+    "name": "Lá Lá Lá Ri",
+    "instructions": "And that song by The Beatles that you can't get enough of singing? Symphonic orchestras, records and rock & roll. Do you know everything about Music?",
+    "category": 12,
+    "categoryName": "Music",
+    "image": ""
+  },
+  {
+    "id": 5,
+    "name": "Knowledge sponge",
+    "instructions": "Let's test your intelligence. How much information have you accumulated over time? Give everything in this category of General Knowledge.",
+    "category": 9,
+    "categoryName": "General Knowledge",
+    "image": ""
+  },
+  {
+    "id": 6,
+    "name": "Color Ribbons",
+    "instructions": "This is the world of brushes, colors, brush strokes, paints, drawings, paintings and artists. What do you know about the art world?",
+    "category": 25,
+    "categoryName": "Art",
+    "image": ""
+  },
+  {
+    "id": 7,
+    "name": "Comics",
+    "instructions": "Superheroes, comic books, fantasy? Are you up to this comic trivia?",
+    "category": 29,
+    "categoryName": "Comics",
+    "image": ""
+  },
+  {
+    "id": 8,
+    "name": "Fitness Blender",
+    "instructions": "We have a sports blender selected just for you. Do you carefully follow everything about who practices exercise? What do you know about the Sport category?",
+    "category": 21,
+    "categoryName": "Sports",
     "image": ""
   }
 ]

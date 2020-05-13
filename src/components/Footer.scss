@@ -8,7 +8,7 @@ footer {
     .logo {
         width: 100%;
         padding: 0 40px 20px 0;
-        @media (max-width: 767px) {
+        @include media-breakpoint-down(sm) {
             width: 190px;
             padding: 0 0 20px 0;
         }
@@ -46,24 +46,24 @@ footer {
             width: 23px;
             height: 15px;
             display: inline-block;
-        background-image: url("../img/IC-HEART.svg");
-        background-repeat: no-repeat;
-        background-size: 100% 100%;
+            background-image: url("../img/IC-HEART.svg");
+            background-repeat: no-repeat;
+            background-size: 100% 100%;
         }
     }
 
     .ic-home {
         width: 30px;
-        height: 15px;
-        display: inline-block;
+        height: 15px;display: inline-block;
+
         &:before {
             content: '';
             width: 23px;
             height: 15px;
             display: inline-block;
-        background-image: url("../img/IC-HOME.svg");
-        background-repeat: no-repeat;
-        background-size: 100% 100%;
+            background-image: url("../img/IC-HOME.svg");
+            background-repeat: no-repeat;
+            background-size: 100% 100%;
         }
     }
 }

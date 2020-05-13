@@ -75,4 +75,7 @@
 
 .content-block {
     margin-bottom: 60px;
+    @include media-breakpoint-down(sm) {
+        margin-bottom: 40px;
+    }
 }
