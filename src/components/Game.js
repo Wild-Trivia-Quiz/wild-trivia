@@ -13,7 +13,7 @@ const Game = () => {
     quizName,
     quizCategoryName,
     quizQuestions,
-    quizInstructions
+    quizInstructions,
   } = useContext(QuizAPIContext);
   //console.log(quizData);
 
@@ -23,12 +23,8 @@ const Game = () => {
 
   return (
     <section className="game">
+      <BackBtn url="/" />
       <Container fluid>
-        <Row className="content-block">
-          <Col xs={12} sm={12} md={12} lg={12}>
-            <BackBtn url="/" />
-          </Col>
-        </Row>
         <Row className="content-block">
           <Col
             xs={12}
@@ -54,10 +50,8 @@ const Game = () => {
             sm={12}
             md={{ span: 8, offset: 2 }}
             lg={{ span: 8, offset: 2 }}
-          > 
-           
-              <QuestionAnswers />;
-         
+          >
+            <QuestionAnswers />;
           </Col>
         </Row>
         <Row className="content-block">
