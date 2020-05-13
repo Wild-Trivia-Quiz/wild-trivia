@@ -6,19 +6,18 @@ import cardGameImage from '../img/cardgame.jpg';
 import { QuizAPIContext } from '../contexts/QuizAPIContext';
 import './CardGame.scss';
 
-const CardGame = ({ name, id, category, categoryName, instructions }) => {
+const CardGame = ({ name, id, category, categoryName, instructions, image }) => {
   const { triviaApiCall, shouldRedirect } = useContext(QuizAPIContext);
 
   const [gameSelectionValue, setGameSelectionValue] = useState('easy');
 
   const selectChangeHandler = (event) => {
-    //console.log('selectChangeHandler', event.target.value);
     setGameSelectionValue(event.target.value);
   };
 
   const handleSubmit = (event) => {
     event.preventDefault();
-    triviaApiCall(gameSelectionValue, category, name, categoryName, instructions);
+    triviaApiCall(gameSelectionValue, category, name, categoryName, instructions, image);
   };
 
   return (
@@ -30,6 +29,7 @@ const CardGame = ({ name, id, category, categoryName, instructions }) => {
         </div>
         <Card.ImgOverlay>
           <h2>{name}</h2>
+          <p className="category">{categoryName} Trivia</p>
           <Form onSubmit={handleSubmit}>
             <Form.Group controlId={`form.SelectGame-${id}`}>
               <Form.Label>What&apos;s your difficulty level?</Form.Label>
@@ -57,14 +57,18 @@ CardGame.propTypes = {
   name: PropTypes.string,
   id: PropTypes.number,
   category: PropTypes.number,
-  categoryName: PropTypes.string
+  categoryName: PropTypes.string,
+  instructions: PropTypes.string,
+  image: PropTypes.string
 };
 
 CardGame.defaultProps = {
   name: '',
   id: '',
   category: '',
-  categoryName: ''
+  categoryName: '',
+  instructions: '',
+  image: ''
 };
 
 export default CardGame;

@@ -48,6 +48,14 @@
         text-shadow: 0 4px $green;
     }
 
+    .category {
+        font-weight: 900;
+        text-transform: uppercase;
+        letter-spacing: 0.5px;
+        font-size: 12px;
+        margin-bottom: 10px;
+    }
+
     label.form-label,
     label {
         font-size: 18px;
