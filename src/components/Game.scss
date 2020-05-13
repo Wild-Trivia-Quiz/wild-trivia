@@ -1,0 +1,12 @@
+@import '../styles/main.scss';
+
+.game {
+    height: 100%;
+    background-color: $dark-purple;
+    color: white;
+    .arcade-btn {
+        @include arcade-btn(180px, $dark-purple);
+        font-size: 15px;
+        padding: 40px;
+    }
+}

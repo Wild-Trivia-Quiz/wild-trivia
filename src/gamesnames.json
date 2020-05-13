@@ -1,0 +1,26 @@
+[
+  {
+    "id": 1,
+    "name": "Wild wild past",
+    "instructions": "instructions  Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.",
+    "category": 23,
+    "categoryName": "History",
+    "image": "./img/cardgame.jpg"
+  },
+  {
+    "id": 2,
+    "name": "Into the (un)known",
+    "instructions": "instructions  Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.",
+    "category": 17,
+    "categoryName": "Science & Nature",
+    "image": ""
+  },
+  {
+    "id": 3,
+    "name": "Hollywood & friends",
+    "instructions": "instructions  Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.",
+    "category": 11,
+    "categoryName": "Film",
+    "image": ""
+  }
+]

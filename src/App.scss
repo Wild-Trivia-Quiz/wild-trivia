@@ -1,45 +1,6 @@
-@import '~bootstrap/scss/bootstrap';
-@import url('https://fonts.googleapis.com/css2?family=Open+Sans:ital,wght@0,300;0,400;0,600;0,700;0,800;1,300;1,400;1,600;1,700;1,800&family=Press+Start+2P&display=swap');
+@import './styles/main.scss';
 
-$maincolor: #5d0e81;
-
-.App {
-  text-align: center;
-  font-family: 'Open Sans', sans-serif;
-
-  .App-header {
-    background-color: $maincolor;
-    min-height: 100vh;
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    justify-content: center;
-    font-size: calc(10px + 2vmin);
-    color: white;
-
-    .App-logo {
-      height: 40vmin;
-      pointer-events: none;
-    }
-
-    .App-link {
-      color: #61dafb;
-      font-family: 'Press Start 2P', cursive;
-    }
+* {
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
   }
-}
-
-@media (prefers-reduced-motion: no-preference) {
-  .App-logo {
-    animation: App-logo-spin infinite 20s linear;
-  }
-}
-
-@keyframes App-logo-spin {
-  from {
-    transform: rotate(0deg);
-  }
-  to {
-    transform: rotate(360deg);
-  }
-}
