@@ -5,35 +5,23 @@ import About from './components/About';
 import Game from './components/Game';
 import HomepageContextProvider from './contexts/HomepageContext';
 import QuizAPIContextProvider from './contexts/QuizAPIContext';
+import GameContextProvider from './contexts/GameContext';
 import './App.scss';
-// import LandingPage from './components/LandingPage';
 import MainPage from './components/MainPage';
 
 function App() {
   return (
     <Router>
       <div>
-        {/* <nav>
-          <ul>
-            <li>
-              <Link to='/'>Homepage</Link>
-            </li>
-            <li>
-              <Link to='/about'>About</Link>
-            </li>
-            <li>
-              <Link to='/game'>Game</Link>
-            </li>
-          </ul>
-        </nav> */}
-
         <HomepageContextProvider>
           <QuizAPIContextProvider>
-            <Switch>
-              <Route exact path='/' component={MainPage} />
-              <Route path='/game' component={Game} />
-              <Route path='/about' component={About} />
-            </Switch>
+            <GameContextProvider>
+              <Switch>
+                <Route exact path='/' component={MainPage} />
+                <Route path='/game' component={Game} />
+                <Route path='/about' component={About} />
+              </Switch>
+            </GameContextProvider>
           </QuizAPIContextProvider>
         </HomepageContextProvider>
       </div>
