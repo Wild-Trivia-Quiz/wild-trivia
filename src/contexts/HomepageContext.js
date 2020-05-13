@@ -1,9 +1,9 @@
-import React, { createContext, useState } from "react";
-import PropTypes from "prop-types";
+import React, { createContext, useState } from 'react';
+import PropTypes from 'prop-types';
 
 export const HomepageContext = createContext();
 
-const HomepageContextProvider = ({children}) => {
+const HomepageContextProvider = ({ children }) => {
   const [isMainPageLoaded, setIsMainPageLoaded] = useState(false);
 
   const handleClick = () => {
@@ -18,11 +18,11 @@ const HomepageContextProvider = ({children}) => {
 };
 
 HomepageContextProvider.propTypes = {
-  children: PropTypes.func
+  children: PropTypes.func,
 };
 
 HomepageContextProvider.defaultProps = {
-  children: ""
+  children: '',
 };
 
 export default HomepageContextProvider;
