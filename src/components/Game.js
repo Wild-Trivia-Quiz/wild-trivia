@@ -19,12 +19,14 @@ const Game = () => {
   );
 
   useEffect(() => {
+    window.scrollTo(0, 0);
+  }, [quizName]);
+  
+  useEffect(() => {
     toggleShouldRedirectGame();
   }, [toggleShouldRedirectGame]);
 
-  useEffect(() => {
-    window.scrollTo(0, 0);
-  }, [quizName]);
+
 
   return (
     <section className="game">
