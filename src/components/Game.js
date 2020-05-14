@@ -1,3 +1,4 @@
+/* eslint-disable react-hooks/exhaustive-deps */
 import React, { useContext, useEffect } from "react";
 import { Container, Row, Col } from "react-bootstrap";
 import BackBtn from "./BackBtn";
@@ -21,7 +22,7 @@ const Game = () => {
 
   useEffect(() => {
     toggleShouldRedirectGame();
-  }, [toggleShouldRedirectGame]);
+  }, []);
 
   useEffect(() => {
     window.scrollTo(0, 0);
