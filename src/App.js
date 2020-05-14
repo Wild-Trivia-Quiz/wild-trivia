@@ -1,11 +1,11 @@
 import React from 'react';
 import { BrowserRouter as Router, Switch, Route } from 'react-router-dom';
 import Game from './components/Game';
+import MainPage from './components/MainPage';
 import HomepageContextProvider from './contexts/HomepageContext';
 import QuizAPIContextProvider from './contexts/QuizAPIContext';
 import GameContextProvider from './contexts/GameContext';
 import './App.scss';
-import MainPage from './components/MainPage';
 
 function App() {
   return (
