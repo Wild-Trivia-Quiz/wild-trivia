@@ -11,7 +11,7 @@ const QuestionAnswers = () => {
     // to start from the top when moving throught pages:
     useEffect(() => {
       window.scrollTo(0, 0);
-    }, [round]);
+    }, []);
 
   return (
     <div>
