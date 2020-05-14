@@ -10,6 +10,10 @@
         margin-bottom: 25px;
     }
 
+    .card-img-overlay {
+        padding: 1rem;
+    }
+
     .card-img-wrapper {
         border-radius: 0;
         width: 100%;
@@ -26,7 +30,11 @@
             position: relative;
 
             @include media-breakpoint-down(sm) {
-                height: 350px;
+                height: 390px;
+            }
+
+            @include media-breakpoint-down(xs) {
+                height: 360px;
             }
 
             &:before {
@@ -44,8 +52,20 @@
 
     h2 {
         text-align: center;
-        margin-top: 10px;
+        margin-top: 5px;
         text-shadow: 0 4px $green;
+        line-height: 2.5rem;
+        @include media-breakpoint-only(lg) {
+            font-size: 1.6rem;
+            line-height: 2.2rem;
+            text-shadow: 0 3px $green;
+        }
+        @include media-breakpoint-down(sm) {
+            font-size: 1.4rem;
+            line-height: 1.9rem;
+            text-shadow: 0 3px $green;
+            margin-bottom: 5px;
+        }
     }
 
     .category {
@@ -60,11 +80,12 @@
     label {
         font-size: 18px;
         font-weight: 400;
-        margin-top: 5px;
+        margin: 8px 0 5px 0;
 
         @include media-breakpoint-down(sm) {
             width: 100%;
             display: block;
+            margin: 20px 0 5px 0;
         }
     }
 

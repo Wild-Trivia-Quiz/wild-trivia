@@ -5,6 +5,10 @@ footer {
     padding: 40px 0;
     color: $dark-purple;
 
+    @include media-breakpoint-down(xs) {
+text-align: center;
+    }
+
     .logo {
         width: 100%;
         padding: 0 40px 20px 0;

@@ -2,9 +2,19 @@
 
 .mainpage {
     background-color: $dark-purple;
-    padding-top: 100px;
-    padding-bottom: 100px;
+    padding-top: 80px;
+    padding-bottom: 80px;
     color: white;
+
+    @include media-breakpoint-down(md) {
+        padding-top: 60px;
+        padding-bottom: 30px;
+    }
+
+    @include media-breakpoint-down(xs) {
+        padding-top: 40px;
+        padding-bottom: 10px;
+    }
 
     .logo-wrapper {
         width: 100%;
@@ -16,13 +26,22 @@
 
         @include media-breakpoint-down(md) {
             align-items: flex-start;
-            padding: 0 40px 80px 40px;
+            padding: 0 40px 60px 40px;
+        }
+
+        @include media-breakpoint-down(xs) {
+            padding: 0 40px 40px 40px;
         }
 
         .logo {
             width: 400px;
+
             @include media-breakpoint-down(md) {
                 width: 350px;
+            }
+
+            @include media-breakpoint-down(sm) {
+                width: 250px;
             }
         }
     }
@@ -31,11 +50,20 @@
         p {
             font-size: 17px;
             margin: 20px 0 0px 0;
-        }
-        @include media-breakpoint-down(md){
-            h1,
-            p {
+
+            @include media-breakpoint-down(md) {
                 text-align: center;
+            }
+        }
+
+        h1 {
+            @include media-breakpoint-down(md) {
+                text-align: center;
+            }
+
+            @include media-breakpoint-down(sm) {
+                font-size: 1.3rem;
+                line-height: 1.8rem;
             }
         }
     }
