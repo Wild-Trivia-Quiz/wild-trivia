@@ -1,10 +1,10 @@
-import React, { useContext, useEffect } from "react";
-import { Container, Row, Col } from "react-bootstrap";
-import BackBtn from "./BackBtn";
-import QuestionAnswers from "./QuestionAnswers";
-import { QuizAPIContext } from "../contexts/QuizAPIContext";
-import { GameContext } from "../contexts/GameContext";
-import "./Game.scss";
+import React, { useContext, useEffect } from 'react';
+import { Container, Row, Col } from 'react-bootstrap';
+import BackBtn from './BackBtn';
+import QuestionAnswers from './QuestionAnswers';
+import { QuizAPIContext } from '../contexts/QuizAPIContext';
+import { GameContext } from '../contexts/GameContext';
+import './Game.scss';
 
 const Game = () => {
   const {
@@ -18,7 +18,6 @@ const Game = () => {
     GameContext
   );
 
-
   useEffect(() => {
     toggleShouldRedirectGame();
   }, []);
@@ -26,23 +25,22 @@ const Game = () => {
   useEffect(() => {
     window.scrollTo(0, 0);
   }, [quizName]);
-  
 
   return (
-    <section className="game">
+    <section className='game'>
       {isGameStarted ? (
         <div>
-          <div className="game-nav">
+          <div className='game-nav'>
             <ul>
               <li>
-                <BackBtn url="/" />
+                <BackBtn url='/' />
               </li>
               <li>
                 <h1>{quizName}</h1>
               </li>
               <li>
-                <p className="category">Difficulty: {quizDifficulty}</p>
-                <p className="category">Category: {quizCategoryName}</p>
+                <p className='category'>Difficulty: {quizDifficulty}</p>
+                <p className='category'>Category: {quizCategoryName}</p>
               </li>
             </ul>
           </div>
@@ -52,21 +50,19 @@ const Game = () => {
                 xs={12}
                 sm={{ span: 12, offset: 0 }}
                 md={{ span: 10, offset: 1 }}
-                lg={{ span: 8, offset: 2 }}
-              >
-                <ul className="board-results">
+                lg={{ span: 8, offset: 2 }}>
+                <ul className='board-results'>
                   <li>Rounds: {round}/10</li>
-                  <li>Score: {score}</li>
+                  <li>Score: {score}/100</li>
                 </ul>
               </Col>
             </Row>
-            <Row className="content-block">
+            <Row className='content-block'>
               <Col
                 xs={12}
                 sm={{ span: 12, offset: 0 }}
                 md={{ span: 10, offset: 1 }}
-                lg={{ span: 8, offset: 2 }}
-              >
+                lg={{ span: 8, offset: 2 }}>
                 <QuestionAnswers />
               </Col>
             </Row>
@@ -74,30 +70,28 @@ const Game = () => {
         </div>
       ) : (
         <div>
-          <div className="game-nav">
-            <BackBtn url="/" />
+          <div className='game-nav'>
+            <BackBtn url='/' />
           </div>
-          <article className="game-welcome">
+          <article className='game-welcome'>
             <Container fluid>
-              <Row className="content-block">
+              <Row className='content-block'>
                 <Col
                   xs={12}
                   sm={12}
                   md={{ span: 8, offset: 2 }}
-                  lg={{ span: 8, offset: 2 }}
-                >
+                  lg={{ span: 8, offset: 2 }}>
                   <p>Let&apos;s play it {quizDifficulty}</p>
                   <h1>{quizName}</h1>
-                  <h2 className="category">{quizCategoryName} trivia</h2>
+                  <h2 className='category'>{quizCategoryName} trivia</h2>
                 </Col>
                 <Col
                   xs={12}
                   sm={12}
                   md={{ span: 8, offset: 2 }}
-                  lg={{ span: 8, offset: 2 }}
-                >
+                  lg={{ span: 8, offset: 2 }}>
                   <p>{quizInstructions}</p>
-                  <p className="rules">
+                  <p className='rules'>
                     There are ten rounds of questions, with four options each
                     and you have to find the right answer.
                   </p>
@@ -108,13 +102,11 @@ const Game = () => {
                   xs={12}
                   sm={12}
                   md={{ span: 8, offset: 2 }}
-                  lg={{ span: 8, offset: 2 }}
-                >
+                  lg={{ span: 8, offset: 2 }}>
                   <button
-                    type="submit"
-                    className="arcade-btn"
-                    onClick={startGameClick}
-                  >
+                    type='submit'
+                    className='arcade-btn'
+                    onClick={startGameClick}>
                     Bring it on!
                   </button>
                 </Col>

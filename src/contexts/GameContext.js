@@ -1,5 +1,5 @@
-import React, { createContext, useState } from "react";
-import PropTypes from "prop-types";
+import React, { createContext, useState } from 'react';
+import PropTypes from 'prop-types';
 
 export const GameContext = createContext();
 
@@ -8,42 +8,40 @@ const GameContextProvider = ({ children }) => {
   const [round, setRound] = useState(1);
   const [isGameStarted, setIsGameStarted] = useState(false);
   const [isGameFinished, setIsGameFinished] = useState(false);
+  const [correctAnswersCounter, setCorrectAnswersCounter] = useState(0);
 
   const nextRound = () => {
     if (round !== 10) {
       setRound(round + 1);
     } else {
-      setRound("10");
+      setRound('10');
       setIsGameFinished(true);
     }
   };
 
   const handleClick = (event, option, correctAnswerPosition) => {
-    console.log("click", option);
+    console.log('click', option);
     if (option === correctAnswerPosition) {
-      console.log("correct", option);
+      console.log('correct', option);
       setScore(score + 10);
+      setCorrectAnswersCounter(correctAnswersCounter + 1);
     } else {
-      console.log("incorrect");
+      console.log('incorrect');
     }
     nextRound();
   };
 
-
   const resetGameStartState = () => {
     setIsGameStarted(false);
-  }
+  };
 
   const startGameClick = () => {
     setIsGameFinished(false);
     setScore(0); //reset
     setRound(1); //reset
     setIsGameStarted(true); //ternary call
-   
   };
 
-
-  
   return (
     <GameContext.Provider
       value={{
@@ -53,9 +51,9 @@ const GameContextProvider = ({ children }) => {
         startGameClick,
         isGameStarted,
         resetGameStartState,
-        isGameFinished
-      }}
-    >
+        isGameFinished,
+        correctAnswersCounter,
+      }}>
       {children}
     </GameContext.Provider>
   );
@@ -66,7 +64,7 @@ GameContextProvider.propTypes = {
 };
 
 GameContextProvider.defaultProps = {
-  children: "",
+  children: '',
 };
 
 export default GameContextProvider;
