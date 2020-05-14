@@ -2,7 +2,7 @@
   {
     "id": 1,
     "name": "Wild wild past",
-    "instructions": "Remember history lessons? You are about to enter the time machine on a journey into the past in this category of History.",
+    "instructions": "Remember history lessons? You're about to enter a time machine on a journey into the past in this category of History.",
     "category": 23,
     "categoryName": "History",
     "image": "./img/cardgame.jpg"
@@ -25,8 +25,8 @@
   },
   {
     "id": 4,
-    "name": "Lá Lá Lá Ri",
-    "instructions": "And that song by The Beatles that you can't get enough of singing? Symphonic orchestras, records and rock & roll. Do you know everything about Music?",
+    "name": "Do Re Mi",
+    "instructions": "You know that song by The Beatles that you can't get enough of singing? Symphonic orchestras, records and rock & roll. Do you know everything about Music?",
     "category": 12,
     "categoryName": "Music",
     "image": ""
@@ -45,6 +45,22 @@
     "instructions": "This is the world of brushes, colors, brush strokes, paints, drawings, paintings and artists. What do you know about the art world?",
     "category": 25,
     "categoryName": "Art",
+    "image": ""
+  },
+  {
+    "id": 7,
+    "name": "Comics",
+    "instructions": "Superheroes? Fantasy? Are you up to this comics trivia?",
+    "category": 29,
+    "categoryName": "Comics",
+    "image": ""
+  },
+  {
+    "id": 8,
+    "name": "Fitness Blender",
+    "instructions": "We have a sports blender selected just for you. Do you carefully follow everything about exercising? What do you know about the Sport category?",
+    "category": 21,
+    "categoryName": "Sports",
     "image": ""
   }
 ]
