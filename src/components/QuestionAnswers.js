@@ -1,4 +1,4 @@
-import React, { useContext } from "react";
+import React, { useContext, useEffect} from "react";
 import { QuizAPIContext } from "../contexts/QuizAPIContext";
 import { GameContext } from "../contexts/GameContext";
 import GameResult from "./GameResult";
@@ -7,6 +7,11 @@ import './QuestionAnswers.scss';
 const QuestionAnswers = () => {
   const { quizQuestionsAndAnswers } = useContext(QuizAPIContext);
   const { handleClick, round, isGameFinished } = useContext(GameContext);
+
+    // to start from the top when moving throught pages:
+    useEffect(() => {
+      window.scrollTo(0, 0);
+    }, [round]);
 
   return (
     <div>
