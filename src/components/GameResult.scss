@@ -1,9 +1,47 @@
 @import '../styles/main.scss';
 
-.final-results .question-answers ul li button {
-  pointer-events: none;
+.game-result {
+  padding-bottom: 80px;
 
-  &.correct-answer {
-    color: $green;
+  .message {
+    text-align: center;
+    margin: 30px 0 40px 0;
+
+    h4 {
+      font-size: 1.6rem;
+      line-height: 2rem;
+
+      span {
+        color: $green;
+        font-weight: 900;
+      }
+    }
+
+    p {
+      margin-top: 10px;
+      font-size: 1.1rem;
+      ;
+    }
+  }
+
+  .logo {
+    width: 200px;
+    margin: 40px 0 30px 0;
+  }
+
+  .final-results {
+    .question-answers {
+      ul li button {
+        pointer-events: none;
+
+        &.correct-answer {
+          background-color: $pink;
+          transition: all 0.8s ease;
+          transform: scale(1.05);
+          box-shadow: 0 20px 0px -10px $dark-purple, 0 0 0 4px $purple inset;
+        }
+      }
+    }
+
   }
 }
