@@ -1,5 +1,7 @@
 import React, { useContext } from 'react';
+import PropTypes from "prop-types";
 import { GameContext } from '../contexts/GameContext';
+import "./Round.scss";
 
 const Round = ({ quizRound }) => {
   const { handleClick } = useContext(GameContext);
@@ -63,6 +65,16 @@ const Round = ({ quizRound }) => {
       </ul>
     </div>
   );
+};
+
+Round.propTypes = {
+  id: PropTypes.number,
+  quizRound:  PropTypes.shape,
+};
+
+Round.defaultProps = {
+  id: "",
+  quizRound: {}
 };
 
 export default Round;

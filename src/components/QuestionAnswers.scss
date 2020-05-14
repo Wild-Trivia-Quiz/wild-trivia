@@ -1,67 +1,21 @@
 @import '../styles/main.scss';
 
-.question-answers {
-    padding: 30px 20px 15px 20px;
+ul.board-results {
+    display: flex;
+    align-items: center;
+    justify-content: space-around;
     background-color: $green;
-    margin: 0 auto;
+    margin-bottom: 20px;
+    color: $dark-purple;
+    background-color: $green;
+    box-shadow: 0 20px 0px -10px $pink;
     border: 10px solid $green;
-    box-shadow: 0 20px 0px -10px $purple;
 
-    @include media-breakpoint-down(sm) {
-        padding: 30px 15px 5px 15px;
-    }
-
-    .question {
-        font-size: 1.6rem;
-        color: $dark-purple;
-        text-align: center;
-        margin-bottom: 25px;
-
-        @include media-breakpoint-down(sm) {
-            font-size: 1.4rem;
-            line-height: 1.9rem;
-        }
-    }
-
-    ul {
-        list-style: none;
-        margin: 0 auto;
-        padding: 0;
-
-        li {
-            width: 96%;
-            margin: 25px auto;
-
-            &:focus {
-                outline: -webkit-focus-ring-color auto 0;
-            }
-
-            @include media-breakpoint-down(sm) {
-                width: 100%;
-            }
-
-            button {
-                width: 100%;
-                background-color: $purple;
-                color: $dark-purple;
-                padding: 10px 15px;
-                box-shadow: 0 20px 0px -10px $dark-purple;
-                text-align: left;
-                border: 0;
-                transition: transform 0.5s ease;
-
-                &:focus {
-                    outline: 0 auto -webkit-focus-ring-color;
-                }
-
-                &:hover,
-                &:active {
-                    background-color: $yellow;
-                    transition: all 0.8s ease;
-                    transform: scale(1.1);
-                    box-shadow: 0 20px 0px -10px $dark-purple, 0 0 0 4px $purple inset;
-                }
-            }
-        }
+    li {
+        font-family: $font-primary;
+        font-size: 1.3rem;
+        line-height: 1.9rem;
+        text-transform: uppercase;
+        padding: 15px 15px 11px 15px;
     }
 }

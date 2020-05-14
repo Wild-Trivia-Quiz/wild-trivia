@@ -39,7 +39,7 @@ const MainPage = () => {
               </article>
             </Col>
           </Row>
-          <Row className='content-block'>
+          <Row>
             {gamesnames.map((game) => (
               <CardGame
                 key={game.id}

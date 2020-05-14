@@ -2,10 +2,9 @@ import React, { useState, useContext } from "react";
 import { Redirect } from "react-router-dom";
 import { Card, Form, Col } from "react-bootstrap";
 import PropTypes from "prop-types";
-import cardGameImage from "../img/cardgame.jpg";
 import { QuizAPIContext } from "../contexts/QuizAPIContext";
-import "./CardGame.scss";
 import { GameContext } from "../contexts/GameContext";
+import "./CardGame.scss";
 
 const CardGame = ({
   name,
@@ -17,6 +16,7 @@ const CardGame = ({
 }) => {
   const { triviaApiCall, shouldRedirect } = useContext(QuizAPIContext);
   const { resetGameStartState } = useContext(GameContext);
+
   const [gameSelectionValue, setGameSelectionValue] = useState("easy");
 
   const selectChangeHandler = (event) => {
@@ -40,9 +40,6 @@ const CardGame = ({
     <Col xs={12} sm={6} md={6} lg={4}>
       {shouldRedirect && <Redirect to="/game" />}
       <Card id={`game-${id}`} className="card-game text-white">
-        <div className="card-img-wrapper">
-          <Card.Img src={cardGameImage} alt="Game" />
-        </div>
         <Card.ImgOverlay>
           <h2>{name}</h2>
           <p className="category">{categoryName} Trivia</p>

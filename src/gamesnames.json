@@ -46,21 +46,5 @@
     "category": 25,
     "categoryName": "Art",
     "image": ""
-  },
-  {
-    "id": 7,
-    "name": "Comics",
-    "instructions": "Superheroes, comic books, fantasy? Are you up to this comic trivia?",
-    "category": 29,
-    "categoryName": "Comics",
-    "image": ""
-  },
-  {
-    "id": 8,
-    "name": "Fitness Blender",
-    "instructions": "We have a sports blender selected just for you. Do you carefully follow everything about who practices exercise? What do you know about the Sport category?",
-    "category": 21,
-    "categoryName": "Sports",
-    "image": ""
   }
 ]
