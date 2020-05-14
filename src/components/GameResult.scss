@@ -1,0 +1,9 @@
+@import '../styles/main.scss';
+
+.final-results .question-answers ul li button {
+  pointer-events: none;
+
+  &.correct-answer {
+    color: $green;
+  }
+}

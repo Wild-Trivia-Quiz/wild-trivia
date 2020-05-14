@@ -1,7 +1,5 @@
 import React from 'react';
 import { BrowserRouter as Router, Switch, Route } from 'react-router-dom';
-// import Homepage from './components/Homepage';
-import About from './components/About';
 import Game from './components/Game';
 import HomepageContextProvider from './contexts/HomepageContext';
 import QuizAPIContextProvider from './contexts/QuizAPIContext';
@@ -19,7 +17,6 @@ function App() {
               <Switch>
                 <Route exact path='/' component={MainPage} />
                 <Route path='/game' component={Game} />
-                <Route path='/about' component={About} />
               </Switch>
             </GameContextProvider>
           </QuizAPIContextProvider>
