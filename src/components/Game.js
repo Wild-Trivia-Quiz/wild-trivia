@@ -14,7 +14,6 @@ const Game = () => {
     quizInstructions,
     quizDifficulty,
   } = useContext(QuizAPIContext);
-
   const { startGameClick, isGameStarted, score, round } = useContext(
     GameContext
   );
@@ -22,12 +21,6 @@ const Game = () => {
   useEffect(() => {
     toggleShouldRedirectGame();
   }, [toggleShouldRedirectGame]);
-
-  // to start from the top when moving throught pages:
-  useEffect(() => {
-    window.scrollTo(0, 0);
-  }, []);
-
 
   return (
     <section className="game">

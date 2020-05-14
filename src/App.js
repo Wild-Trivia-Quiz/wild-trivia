@@ -1,12 +1,13 @@
 import React from 'react';
 import { BrowserRouter as Router, Switch, Route } from 'react-router-dom';
+// import Homepage from './components/Homepage';
+import About from './components/About';
 import Game from './components/Game';
-import MainPage from './components/MainPage';
 import HomepageContextProvider from './contexts/HomepageContext';
 import QuizAPIContextProvider from './contexts/QuizAPIContext';
 import GameContextProvider from './contexts/GameContext';
 import './App.scss';
-
+import MainPage from './components/MainPage';
 
 function App() {
   return (
@@ -18,6 +19,7 @@ function App() {
               <Switch>
                 <Route exact path='/' component={MainPage} />
                 <Route path='/game' component={Game} />
+                <Route path='/about' component={About} />
               </Switch>
             </GameContextProvider>
           </QuizAPIContextProvider>
