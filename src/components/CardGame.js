@@ -11,8 +11,7 @@ const CardGame = ({
   id,
   category,
   categoryName,
-  instructions,
-  image,
+  instructions
 }) => {
   const { triviaApiCall, shouldRedirect } = useContext(QuizAPIContext);
   const { resetGameStartState } = useContext(GameContext);
@@ -31,8 +30,7 @@ const CardGame = ({
       category,
       name,
       categoryName,
-      instructions,
-      image
+      instructions
     );
   };
 
@@ -72,8 +70,7 @@ CardGame.propTypes = {
   id: PropTypes.number,
   category: PropTypes.number,
   categoryName: PropTypes.string,
-  instructions: PropTypes.string,
-  image: PropTypes.string,
+  instructions: PropTypes.string
 };
 
 CardGame.defaultProps = {
@@ -81,8 +78,7 @@ CardGame.defaultProps = {
   id: "",
   category: "",
   categoryName: "",
-  instructions: "",
-  image: "",
+  instructions: ""
 };
 
 export default CardGame;
