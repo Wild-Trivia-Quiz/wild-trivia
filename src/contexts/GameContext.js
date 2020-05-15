@@ -19,14 +19,10 @@ const GameContextProvider = ({ children }) => {
     }
   };
 
-  const handleClick = (event, option, correctAnswerPosition) => {
-    console.log('click', option);
+  const handleClick = (option, correctAnswerPosition) => {
     if (option === correctAnswerPosition) {
-      console.log('correct', option);
       setScore(score + 10);
       setCorrectAnswersCounter(correctAnswersCounter + 1);
-    } else {
-      console.log('incorrect');
     }
     nextRound();
   };
@@ -37,9 +33,9 @@ const GameContextProvider = ({ children }) => {
 
   const startGameClick = () => {
     setIsGameFinished(false);
-    setScore(0); //reset
-    setRound(1); //reset
-    setIsGameStarted(true); //ternary call
+    setScore(0);
+    setRound(1);
+    setIsGameStarted(true);
   };
 
   return (

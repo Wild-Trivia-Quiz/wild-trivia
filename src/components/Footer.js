@@ -42,7 +42,7 @@ const Footer = () => {
                   For more information check directly the GitHub page of our
                   project{' '}
                   <a
-                    href='https://github.com/Wild-Trivia'
+                    href='https://github.com/Wild-Trivia-Quiz/wild-trivia'
                     target='_blank'
                     rel='noopener noreferrer'>
                     here

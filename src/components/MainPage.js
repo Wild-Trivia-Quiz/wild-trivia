@@ -48,7 +48,6 @@ const MainPage = () => {
                 category={game.category}
                 categoryName={game.categoryName}
                 instructions={game.instructions}
-                image={game.image}
               />
             ))}
           </Row>

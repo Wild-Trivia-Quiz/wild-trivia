@@ -56,7 +56,7 @@ const QuizAPIContextProvider = ({ children }) => {
         //array with 3 incorrect answers:
         const answersArray = [...element.incorrect_answers];
 
-        //save in the object the position of the correct anwser:
+        //save inside the object the position of the correct anwser:
         questionAndAnwsersObj.correctAnswerPosition =
           Math.floor(Math.random() * 4) + 1; //1 or 2 or 3 or 4
 
@@ -66,15 +66,14 @@ const QuizAPIContextProvider = ({ children }) => {
           element.correct_answer
         );
 
-        //save in the object each "option" answer and position:
-        answersArray.map((option, index) => {
-          questionAndAnwsersObj["option" + (index + 1)] = option;
+        //save inside the object each "option" answer and position:
+        answersArray.map((option, i) => {
+          questionAndAnwsersObj["option" + (i + 1)] = option;
         });
 
         return questionAndAnwsersObj;
       });
 
-      //console.log(dataQuestionsAndAnwsers);
       setQuizQuestionsAndAnswers(dataQuestionsAndAnwsers);
     });
   };
