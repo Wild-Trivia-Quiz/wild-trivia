@@ -68,7 +68,8 @@
     label {
         font-size: 18px;
         font-weight: 400;
-        margin: 8px 0 5px 0;
+        margin: 20px 0 5px 0;
+        display: block;
 
         @include media-breakpoint-down(sm) {
             width: 100%;
