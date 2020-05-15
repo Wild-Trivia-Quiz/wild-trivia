@@ -5,7 +5,7 @@ import BackBtn from "./BackBtn";
 import QuestionAnswers from "./QuestionAnswers";
 import { QuizAPIContext } from "../contexts/QuizAPIContext";
 import { GameContext } from "../contexts/GameContext";
-import logo from '../img/logo-white.png';
+import logo from "../img/logo-white.png";
 import "./Game.scss";
 
 const Game = () => {
@@ -16,9 +16,7 @@ const Game = () => {
     quizInstructions,
     quizDifficulty,
   } = useContext(QuizAPIContext);
-  const { startGameClick, isGameStarted } = useContext(
-    GameContext
-  );
+  const { startGameClick, isGameStarted } = useContext(GameContext);
 
   useEffect(() => {
     toggleShouldRedirectGame();
@@ -108,13 +106,13 @@ const Game = () => {
                 </Col>
               </Row>
               <Row>
-              <Col
+                <Col
                   xs={12}
                   sm={12}
                   md={{ span: 8, offset: 2 }}
                   lg={{ span: 8, offset: 2 }}
                 >
-                    <img src={logo} alt='logo' className='logo' />
+                  <img src={logo} alt="logo" className="logo" />
                 </Col>
               </Row>
             </Container>

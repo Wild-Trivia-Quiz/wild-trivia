@@ -18,7 +18,7 @@ const QuestionAnswers = () => {
       {isGameFinished ? (
         <GameResult />
       ) : (
-        <div  className="board-background">
+        <div className="board-background">
           <ul className="board-results">
             <li>Rounds: {round}/10</li>
             <li>Score: {score}/100</li>
@@ -26,7 +26,16 @@ const QuestionAnswers = () => {
           {quizQuestionsAndAnswers.map(
             (quizRound) =>
               quizRound.id === round && (
-                <Round key={quizRound.id} quizRound={{ ...quizRound }} />
+                <Round
+                  key={quizRound.id}
+                  id={quizRound.id}
+                  question={quizRound.question}
+                  correctAnswerPosition={quizRound.correctAnswerPosition}
+                  option1={quizRound.option1}
+                  option2={quizRound.option2}
+                  option3={quizRound.option3}
+                  option4={quizRound.option4}
+                />
               )
           )}
         </div>

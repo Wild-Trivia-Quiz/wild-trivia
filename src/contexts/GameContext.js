@@ -1,5 +1,4 @@
 import React, { createContext, useState } from 'react';
-import PropTypes from 'prop-types';
 
 export const GameContext = createContext();
 
@@ -53,14 +52,6 @@ const GameContextProvider = ({ children }) => {
       {children}
     </GameContext.Provider>
   );
-};
-
-GameContextProvider.propTypes = {
-  children: PropTypes.func,
-};
-
-GameContextProvider.defaultProps = {
-  children: '',
 };
 
 export default GameContextProvider;
