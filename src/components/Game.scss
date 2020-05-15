@@ -1,8 +1,12 @@
 @import '../styles/main.scss';
-
+.game {
+    padding-bottom: 80px;
+    height: 100%;
+    background-color: $purple;
+}
 .game-questions-wrapper {
-    height: 100vh;
-    min-height: 800px;
+    height: 100%;
+    min-height: 1000px;
     background-color: $purple;
     color: white;
 }

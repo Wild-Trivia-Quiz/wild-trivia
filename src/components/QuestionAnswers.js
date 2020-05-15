@@ -14,11 +14,11 @@ const QuestionAnswers = () => {
   }, []);
 
   return (
-    <div>
+    <div className="board-background">
       {isGameFinished ? (
         <GameResult />
       ) : (
-        <div>
+        <div  className="board-background">
           <ul className="board-results">
             <li>Rounds: {round}/10</li>
             <li>Score: {score}/100</li>
