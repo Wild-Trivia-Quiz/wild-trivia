@@ -1,68 +1,24 @@
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+# Wild Trivia 
+A two weeks group project developed with ReactJS, remotely, during the Web Development course at *Wild Code School - Lisbon* by **André Pereira** and **Filipa Marta**. You can check our project live here (at Netlify): https://wild-trivia.netlify.app/
 
-## Available Scripts
 
-In the project directory, you can run:
+#### // The Idea
+The request for this project was to fetch data from an API and after brainstorm, we chose Open Trivia API (https://opentdb.com/api_config.php). Trivia is a people gatherer. We believe that’s important because, with the advent of technology, people tend to alienate social interaction. So we created **Wild Trivia**, a React JS app, to boost this interaction in the digital world, stimulate the brain and have fun while doing so.
 
-### `npm start`
 
-Runs the app in the development mode.<br />
-Open [http://localhost:3000](http://localhost:3000) to view it in the browser.
+![Image](https://github.com/Wild-Trivia-Quiz/wild-trivia/blob/master/src/img/wiltrivia-viw-github.png)
 
-The page will reload if you make edits.<br />
-You will also see any lint errors in the console.
 
-### `npm test`
+#### // The Development
+We draw wireframes and the components tree. We setup the GitHub environment using Git and an organization account with two branches: master (blocked for commits) and dev. To build the project we used Netlify. We setup a Trello board with Scrum and defined the boilerplate for the project with React (React Router, React Hooks, React Context), Bootstrap, SASS, HTML, Google fonts. We used Visual Code Studio to write the code and for visual interface design, Sketch. To prepare the presentation we used Google Slides. Everything in this project was made remotely through Google Hangouts meetings.
 
-Launches the test runner in the interactive watch mode.<br />
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
 
-### `npm run build`
+#### // Our Role
+We worked together on the brainstorm, wireframes, setup the GitHub and Trello environment. We worked together on the set up of the React App as well as main major components to do the MVP (minimal viable product) to GET the information from the API and the game working. Web design, styles & animations, html architecture (responsive included) and UX of the application was managed by Filipa. André Pereira also worked on the Modal’s contribution to a good UX. We worked all together remotely, taking doubts, discussing ideas and being there to one another when Git came into stage. Together we presented our project to Lisbon campus and on May 15th, 2020.
 
-Builds the app for production to the `build` folder.<br />
-It correctly bundles React in production mode and optimizes the build for the best performance.
 
-The build is minified and the filenames include the hashes.<br />
-Your app is ready to be deployed!
+#### // Tech && Methodologies
+Visual Code Studio, HTML5, SASS, JavaScript ES6, Bootstrap 4, React JS, React Router, React Hooks, React Context, Git, Terminal, GitHub, GitHub Pages, Netlify, Sketch, Google Slides, Google Hangouts, Trello.
 
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
 
-### `npm run eject`
-
-**Note: this is a one-way operation. Once you `eject`, you can’t go back!**
-
-If you aren’t satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
-
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you’re on your own.
-
-You don’t have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn’t feel obligated to use this feature. However we understand that this tool wouldn’t be useful if you couldn’t customize it when you are ready for it.
-
-## Learn More
-
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
-
-To learn React, check out the [React documentation](https://reactjs.org/).
-
-### Code Splitting
-
-This section has moved here: https://facebook.github.io/create-react-app/docs/code-splitting
-
-### Analyzing the Bundle Size
-
-This section has moved here: https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size
-
-### Making a Progressive Web App
-
-This section has moved here: https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app
-
-### Advanced Configuration
-
-This section has moved here: https://facebook.github.io/create-react-app/docs/advanced-configuration
-
-### Deployment
-
-This section has moved here: https://facebook.github.io/create-react-app/docs/deployment
-
-### `npm run build` fails to minify
-
-This section has moved here: https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify
+![Image logo](https://github.com/Wild-Trivia-Quiz/wild-trivia/blob/master/src/img/logo4.png)
