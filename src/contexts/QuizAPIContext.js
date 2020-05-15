@@ -1,3 +1,4 @@
+/* eslint-disable react-hooks/exhaustive-deps */
 import React, { createContext, useState, useEffect } from "react";
 import axios from "axios";
 import PropTypes from "prop-types";
@@ -14,6 +15,26 @@ const QuizAPIContextProvider = ({ children }) => {
   const [quizInstructions, setQuizInstructions] = useState("");
   const [quizQuestionsAndAnswers, setQuizQuestionsAndAnswers] = useState({});
   const [quizDifficulty, setQuizDifficulty] = useState("");
+
+  const convertString = (string) => { 
+    return string
+      .replace("&amp;", "&")
+      .replace("&AMP;", "&")
+      .replace("&quot;", '"')
+      .replace("&QUOT;", '"')
+      .replace("&apos;", "'")
+      .replace("&APOS;", "'")
+      .replace("&gt;", ">")
+      .replace("&lt;", "<")
+      .replace("&rsquo;", "'")
+      .replace("&RSQUO;", "'")
+      .replace("&#039;", "'")
+      .replace("&lrm;", "")
+      .replace("&LRM;", "")
+      .replace("&micro;", "µ")
+      .replace("&OACUTE;", "Ó")
+      .replace("&UUML;", "Ü");
+  }
 
   const toggleShouldRedirectGame = () => {
     setShouldRedirect(!shouldRedirect);
