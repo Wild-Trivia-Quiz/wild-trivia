@@ -1,4 +1,8 @@
 @import '../styles/main.scss';
+.board-background {
+    height: 100%;
+    background-color: $purple;
+}
 
 ul.board-results {
     display: flex;
