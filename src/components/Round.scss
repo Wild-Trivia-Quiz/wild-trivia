@@ -49,6 +49,10 @@
 
                 &:focus {
                     outline: 0 auto -webkit-focus-ring-color;
+
+                    @include media-breakpoint-down(sm) {
+                        outline: 4px solid $pink;
+                    }
                 }
 
                 &:hover,
@@ -57,6 +61,13 @@
                     transition: all 0.8s ease;
                     transform: scale(1.1);
                     box-shadow: 0 20px 0px -10px $dark-purple, 0 0 0 4px $purple inset;
+
+                    @include media-breakpoint-down(sm) {
+                        background-color: $purple;
+                        transition: none;
+                        transform: none;
+                        box-shadow: 0 20px 0px -10px $dark-purple, 0 0 0 4px $purple inset;
+                    }
                 }
             }
         }

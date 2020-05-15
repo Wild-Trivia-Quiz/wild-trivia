@@ -1,3 +1,4 @@
+/* eslint-disable react-hooks/exhaustive-deps */
 import React, { createContext, useState, useEffect } from "react";
 import axios from "axios";
 import PropTypes from "prop-types";
@@ -14,6 +15,26 @@ const QuizAPIContextProvider = ({ children }) => {
   const [quizInstructions, setQuizInstructions] = useState("");
   const [quizQuestionsAndAnswers, setQuizQuestionsAndAnswers] = useState({});
   const [quizDifficulty, setQuizDifficulty] = useState("");
+
+  const convertString = (string) => { 
+    return string
+      .replace("&amp;", "&")
+      .replace("&AMP;", "&")
+      .replace("&quot;", '"')
+      .replace("&QUOT;", '"')
+      .replace("&apos;", "'")
+      .replace("&APOS;", "'")
+      .replace("&gt;", ">")
+      .replace("&lt;", "<")
+      .replace("&rsquo;", "'")
+      .replace("&RSQUO;", "'")
+      .replace("&#039;", "'")
+      .replace("&lrm;", "")
+      .replace("&LRM;", "")
+      .replace("&micro;", "µ")
+      .replace("&OACUTE;", "Ó")
+      .replace("&UUML;", "Ü");
+  }
 
   const toggleShouldRedirectGame = () => {
     setShouldRedirect(!shouldRedirect);
@@ -56,7 +77,7 @@ const QuizAPIContextProvider = ({ children }) => {
         //array with 3 incorrect answers:
         const answersArray = [...element.incorrect_answers];
 
-        //save in the object the position of the correct anwser:
+        //save inside the object the position of the correct anwser:
         questionAndAnwsersObj.correctAnswerPosition =
           Math.floor(Math.random() * 4) + 1; //1 or 2 or 3 or 4
 
@@ -66,15 +87,14 @@ const QuizAPIContextProvider = ({ children }) => {
           element.correct_answer
         );
 
-        //save in the object each "option" answer and position:
-        answersArray.map((option, index) => {
-          questionAndAnwsersObj["option" + (index + 1)] = option;
+        //save inside the object each "option" answer and position:
+        answersArray.map((option, i) => {
+          questionAndAnwsersObj["option" + (i + 1)] = option;
         });
 
         return questionAndAnwsersObj;
       });
 
-      //console.log(dataQuestionsAndAnwsers);
       setQuizQuestionsAndAnswers(dataQuestionsAndAnwsers);
     });
   };
