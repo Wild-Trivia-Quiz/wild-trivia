@@ -1,7 +1,6 @@
 /* eslint-disable react-hooks/exhaustive-deps */
 import React, { createContext, useState, useEffect } from "react";
 import axios from "axios";
-import PropTypes from "prop-types";
 
 export const QuizAPIContext = createContext();
 
@@ -68,9 +67,9 @@ const QuizAPIContextProvider = ({ children }) => {
         );
 
         //save inside the object each "option" answer and position:
-        answersArray.map((option, i) => {
-          questionAndAnwsersObj["option" + (i + 1)] = option;
-        });
+        answersArray.map((option, i) => (
+          questionAndAnwsersObj["option" + (i + 1)] = option
+        ));
 
         return questionAndAnwsersObj;
       });
@@ -98,12 +97,5 @@ const QuizAPIContextProvider = ({ children }) => {
   );
 };
 
-QuizAPIContextProvider.propTypes = {
-  children: PropTypes.func,
-};
-
-QuizAPIContextProvider.defaultProps = {
-  children: "",
-};
 
 export default QuizAPIContextProvider;

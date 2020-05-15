@@ -1,5 +1,4 @@
 import React, { createContext, useState } from 'react';
-import PropTypes from 'prop-types';
 
 export const HomepageContext = createContext();
 
@@ -17,12 +16,5 @@ const HomepageContextProvider = ({ children }) => {
   );
 };
 
-HomepageContextProvider.propTypes = {
-  children: PropTypes.func,
-};
-
-HomepageContextProvider.defaultProps = {
-  children: '',
-};
 
 export default HomepageContextProvider;
