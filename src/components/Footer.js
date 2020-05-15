@@ -34,7 +34,7 @@ const Footer = () => {
                     rel='noopener noreferrer'>
                     Filipa Marta
                   </a>
-                  , directly from our quarantined <span className='ic-home' />
+                  , directly from our quarantine <span className='ic-home' />
                 </p>
               </li>
               <li>
