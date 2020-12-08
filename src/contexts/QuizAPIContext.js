@@ -1,6 +1,7 @@
 /* eslint-disable react-hooks/exhaustive-deps */
 import React, { createContext, useState, useEffect } from "react";
 import axios from "axios";
+import parse from 'html-react-parser';
 
 export const QuizAPIContext = createContext();
 
@@ -47,26 +48,26 @@ const QuizAPIContextProvider = ({ children }) => {
       setQuizData(data);
 
       const dataQuestionsAndAnwsers = data.map((element, index) => {
-        //object with question, correct anwser position and all the 4 options:
+        // object with question, correct anwser position and all the 4 options:
         const questionAndAnwsersObj = {
           id: index + 1,
-          question: element.question,
+          question: parse(element.question),
         };
 
-        //array with 3 incorrect answers:
+        // array with 3 incorrect answers:
         const answersArray = [...element.incorrect_answers];
 
-        //save inside the object the position of the correct anwser:
+        // save inside the object the position of the correct anwser:
         questionAndAnwsersObj.correctAnswerPosition =
           Math.floor(Math.random() * 4) + 1; //1 or 2 or 3 or 4
 
         answersArray.splice(
           questionAndAnwsersObj.correctAnswerPosition - 1,
           0,
-          element.correct_answer
+          parse(element.correct_answer)
         );
 
-        //save inside the object each "option" answer and position:
+        // save inside the object each "option" answer and position:
         answersArray.map((option, i) => (
           questionAndAnwsersObj["option" + (i + 1)] = option
         ));
